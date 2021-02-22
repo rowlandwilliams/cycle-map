@@ -20,7 +20,7 @@ fs.createReadStream("../raw/docking-stations.csv")
   })
   .on("end", () =>
     fs.writeFileSync(
-      "../processed/docking-stations-processed.json",
+      "../../client/src/components/docking-stations-processed.json",
       JSON.stringify(stations)
     )
   );
