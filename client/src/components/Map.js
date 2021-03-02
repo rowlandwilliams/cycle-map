@@ -1,10 +1,11 @@
 import { StaticMap } from "react-map-gl";
 import DeckGL from "@deck.gl/react";
-import { ScatterplotLayer } from "@deck.gl/layers";
+import { ScatterplotLayer, LineLayer } from "@deck.gl/layers";
+// import { TripsLayer } from "@deck.gl/geo-layers";
 import { useState } from "react";
 
 const stations = require("./docking-stations-processed.json");
-console.log(stations);
+const routes = require("./routes.json");
 const mapStyle =
   "https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json";
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
@@ -36,6 +37,16 @@ function Map() {
       //   radiusMinPixels: 3,
       //   lineWidthMinPixels: 0,
       onHover: (info) => setStationInfo(info),
+    }),
+    new LineLayer({
+      id: "lines",
+      data: routes,
+      opacity: 0.8,
+      getSourcePosition: (d) => d.start.reverse(),
+      getTargetPosition: (d) => d.end.reverse(),
+      getColor: [252, 186, 3],
+      getWidth: 3,
+      pickable: true,
     }),
   ];
 
