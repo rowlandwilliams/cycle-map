@@ -34,6 +34,20 @@ const matchStationIdToCoords = (row, stations) => {
   return row;
 };
 
+function toTimestamp(string) {
+  // year, month, day, hour, minute, second;
+  var year = string.substring(6, 10);
+  var month = string.substring(3, 5);
+  var day = string.substring(0, 2);
+  var hour = string.substring(11, 13);
+  var minute = string.substring(14, 16);
+
+  var datum = new Date(
+    Date.UTC(string.substring(6, 10), month - 1, day, hour, minute)
+  );
+  return datum.getTime() / 1000;
+}
+
 fs.createReadStream("./data/raw/journey-data03122020-05012021.csv")
   .pipe(csv())
   .on("data", (row) => {
@@ -42,13 +56,19 @@ fs.createReadStream("./data/raw/journey-data03122020-05012021.csv")
     if (
       Number(row.start_date.substring(0, 2)) == 05 && // starts on 04
       Number(row.end_date.substring(0, 2)) == 05 && // ends on 04
-      Number(row.end_date.substring(11, 13)) <= 12 // before 12
+      Number(row.end_date.substring(11, 13)) >= 8 && // before 12
+      Number(row.end_date.substring(11, 13)) <= 9 // before 12
     ) {
       matchStationIdToCoords(row, stations);
+      row.start_ts = toTimestamp(row.start_date);
+      row.end_ts = toTimestamp(row.end_date);
+      row.length_ts = row.end_ts - row.start_ts;
+      console.log(row);
       routes04.push(row);
     }
   })
   .on("end", () => {
+    console.log(routes04.length);
     fs.writeFileSync(
       "./data/raw/json/journey-data-matched.json",
       JSON.stringify(routes04)
