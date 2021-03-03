@@ -3,7 +3,7 @@ const csv = require("csv-parser");
 
 const stations = [];
 
-fs.createReadStream("../raw/docking-stations.csv")
+fs.createReadStream("./data/raw/docking-stations.csv")
   .pipe(csv())
   .on("data", (row) => {
     row.station_id = Number(row["Station.Id"]);
@@ -20,7 +20,7 @@ fs.createReadStream("../raw/docking-stations.csv")
   })
   .on("end", () =>
     fs.writeFileSync(
-      "../../client/src/components/docking-stations-processed.json",
+      "./data/raw/json/docking-stations-processed.json",
       JSON.stringify(stations)
     )
   );

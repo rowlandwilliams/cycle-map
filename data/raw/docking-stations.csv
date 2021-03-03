@@ -377,6 +377,7 @@ Station.Id,StationName,longitude,latitude,Easting,Northing
 388,"Southampton Street, Strand",-0.121724,51.5107,530439.87,180758.83
 389,"Upper Grosvenor Street, Mayfair",-0.155758,51.5101,528079.768,180634.274
 390,"Buxton Street 1, Shoreditch",-0.068856,51.5218,534077.971,182085.39
+391,"Clifford Street, Mayfair",-0.142361,51.51068,,
 392,"Imperial College, Knightsbridge",-0.179702,51.4994,526447.903,179402.677
 393,"Snow Hill, Farringdon",-0.103604,51.5173,531678.31,181527.824
 394,"Aberdeen Place, St. John's Wood",-0.176268,51.5248,526598.677,182219.159
@@ -801,3 +802,7 @@ Station.Id,StationName,longitude,latitude,Easting,Northing
 835,"Farringdon Street, Holborn",-0.1049478,51.516785,531588,181465
 838,"Fore Street Avenue, Guildhall",-0.0914017,51.518093,532524,181634
 839,"Sea Containers, South Bank",-0.1068403,51.507974,531482,180481
+840,"George Row, Bermondsey",-0.069023,51.498581,,
+841,"Tower Wharf, Bermondsey",-0.074713,51.500841,,
+842,"Temple Gardens, Temple",-0.108338,51.510987,,
+844,"Canada Water Station, Rotherhithe",-0.049164,51.498436,,

@@ -3,7 +3,7 @@ const fs = require("fs");
 const csv = require("csv-parser");
 
 const stations = require("../raw/json/docking-stations-processed.json");
-console.log(stations);
+// console.log(stations);
 var routes04 = [];
 
 // convert excel columns to number
@@ -19,6 +19,21 @@ const numberize = (row) => {
   return row;
 };
 
+// look up station id in stations json and match start and end coords
+const matchStationIdToCoords = (row, stations) => {
+  row.start_coords = [
+    stations.filter((x) => x.station_id == row.startstation_id)[0].longitude,
+    stations.filter((x) => x.station_id == row.startstation_id)[0].latitude,
+  ];
+
+  row.end_coords = [
+    stations.filter((x) => x.station_id == row.endstation_id)[0].longitude,
+    stations.filter((x) => x.station_id == row.endstation_id)[0].latitude,
+  ];
+
+  return row;
+};
+
 fs.createReadStream("./data/raw/journey-data03122020-05012021.csv")
   .pipe(csv())
   .on("data", (row) => {
@@ -29,10 +44,13 @@ fs.createReadStream("./data/raw/journey-data03122020-05012021.csv")
       Number(row.end_date.substring(0, 2)) == 05 && // ends on 04
       Number(row.end_date.substring(11, 13)) <= 12 // before 12
     ) {
-      row.rental_id = Number(row.rental_id);
+      matchStationIdToCoords(row, stations);
       routes04.push(row);
     }
   })
   .on("end", () => {
-    // console.log(routes04, routes04.length);
+    fs.writeFileSync(
+      "./data/raw/json/journey-data-matched.json",
+      JSON.stringify(routes04)
+    );
   });
