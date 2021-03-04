@@ -3,8 +3,8 @@ const polyline = require("polyline");
 const fs = require("fs");
 require("dotenv").config();
 
-var routes = require("../raw/json/journey-data-matched.json").slice(0, 2);
-var sub = routes.slice(0, 2);
+var routes = require("../raw/json/journey-data-matched.json").slice(0, 1);
+var sub = routes.slice(0, 20);
 
 // generate small lines that concatenate to a route from g maps api output
 const generateLines = (path) => {
@@ -17,9 +17,9 @@ const generateLines = (path) => {
 
 // generate array of urls
 var urls = [];
-for (var i = 0; i < sub.length; i++) {
-  var url = `https://maps.googleapis.com/maps/api/directions/json?origin=${sub[i].start_coords[1]},%20${sub[i].start_coords[0]}&destination=${sub[i].end_coords[1]},%20${sub[i].end_coords[0]}&key=${process.env.GOOGLE_MAPS_API_KEY}`;
-  urls.push({ rental_id: sub[i].rental_id, url: url });
+for (var i = 0; i < routes.length; i++) {
+  var url = `https://maps.googleapis.com/maps/api/directions/json?origin=${routes[i].start_coords[1]},%20${routes[i].start_coords[0]}&destination=${routes[i].end_coords[1]},%20${routes[i].end_coords[0]}&key=${process.env.GOOGLE_MAPS_API_KEY}`;
+  urls.push({ rental_id: routes[i].rental_id, url: url });
 }
 
 // fetch data from g maps api
@@ -35,7 +35,6 @@ function getData(url) {
           .decode(data.routes[0].overview_polyline.points)
           .map((x) => x.reverse()), // return waypoint coordinates and reverese for deck-gl
       };
-      console.log(path);
       return Promise.resolve(path);
     });
 }
