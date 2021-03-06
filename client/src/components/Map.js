@@ -1,11 +1,7 @@
 import { StaticMap } from "react-map-gl";
 import DeckGL from "@deck.gl/react";
-import { ScatterplotLayer, LineLayer } from "@deck.gl/layers";
 import { TripsLayer } from "@deck.gl/geo-layers";
 import { useState, useEffect } from "react";
-import { scaleLinear } from "d3-scale";
-import { AmbientLight, PointLight, LightingEffect } from "@deck.gl/core";
-import { PolygonLayer } from "@deck.gl/layers";
 
 const MAP_STYLE =
   "https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json";
