@@ -3,8 +3,8 @@ import DeckGL from "@deck.gl/react";
 import { TripsLayer } from "@deck.gl/geo-layers";
 import { useState, useEffect } from "react";
 
-const MAP_STYLE =
-  "https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json";
+const MAP_STYLE = process.env.REACT_APP_MAPBOX_STYLE;
+// ("https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json");
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
 
 const INITIAL_VIEW_STATE = {
@@ -58,7 +58,7 @@ function Map(props) {
       getTimestamps: (d) => d.timestamps,
       getColor: (d) => setColourByDistance(d.distance),
       opacity: 0.3,
-      widthMinPixels: 3,
+      widthMinPixels: 2,
       rounded: true,
       trailLength,
       currentTime: time,
