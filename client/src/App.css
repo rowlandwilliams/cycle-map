@@ -1,2 +1,7 @@
+.App {
+  color: white;
+}
 
-
+:root {
+  --dark-grey: #0f111a;
+}
