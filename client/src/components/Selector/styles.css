@@ -1,8 +1,22 @@
-.selector-container {
-  background-color: var(--dark-grey);
-  width: 20%;
-  height: calc(100vh - 60px);
-  margin: 30px 20px;
-  z-index: 10;
+.sc-wrapper {
   position: absolute;
+  display: flex;
+  z-index: 10;
+  margin: 30px 20px;
+  height: calc(100vh - 60px);
+}
+
+.sc-item {
+  background-color: var(--dark-grey);
+  margin-right: 5px;
+}
+
+.sc-item--box {
+  min-width: 200px;
+}
+
+.sc-item--arrow {
+  height: fit-content;
+  padding: 0 2px;
+  font-size: 20px;
 }

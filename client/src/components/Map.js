@@ -58,7 +58,7 @@ function Map(props) {
       getTimestamps: (d) => d.timestamps,
       getColor: (d) => setColourByDistance(d.distance),
       opacity: 0.3,
-      widthMinPixels: 2,
+      widthMinPixels: 3,
       rounded: true,
       trailLength,
       currentTime: time,
