@@ -19,6 +19,11 @@ const numberize = (row) => {
   return row;
 };
 
+const convertTimeToHour = (time) => {
+  console.log(Number(time.substring(14, 16)));
+  return Number(time.substring(14, 16));
+};
+
 // look up station id in stations json and match start and end coords
 const matchStationIdToCoords = (row, stations) => {
   row.start_coords = [
@@ -52,23 +57,25 @@ fs.createReadStream("./data/raw/journey-data03122020-05012021.csv")
   .pipe(csv())
   .on("data", (row) => {
     row = numberize(row);
+    // console.log(convertTimeToHour(row.end_date));
     // if first two digits of end-date and start-date are 05, push to array
     if (
-      Number(row.start_date.substring(0, 2)) == 05 && // starts on 04
-      Number(row.end_date.substring(0, 2)) == 05 && // ends on 04
-      Number(row.end_date.substring(11, 13)) >= 8 && // before 12
+      Number(row.start_date.substring(0, 2)) == 04 && // starts on 04
+      Number(row.end_date.substring(0, 2)) == 04 && // ends on 04
+      (Number(row.end_date.substring(11, 13)) &&
+        Number(row.start_date.substring(11, 13))) >= 8 && // before 12
+      convertTimeToHour(row.end_date) <= 30 && // before half past the hour
       Number(row.end_date.substring(11, 13)) <= 9 // before 12
     ) {
       matchStationIdToCoords(row, stations);
       row.start_ts = toTimestamp(row.start_date);
       row.end_ts = toTimestamp(row.end_date);
       row.length_ts = row.end_ts - row.start_ts;
-      console.log(row);
       routes04.push(row);
     }
   })
   .on("end", () => {
-    console.log(routes04.length);
+    console.log(routes04, routes04.length);
     fs.writeFileSync(
       "./data/raw/json/journey-data-matched.json",
       JSON.stringify(routes04)
