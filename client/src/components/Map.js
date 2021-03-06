@@ -7,30 +7,26 @@ import { scaleLinear } from "d3-scale";
 import { AmbientLight, PointLight, LightingEffect } from "@deck.gl/core";
 import { PolygonLayer } from "@deck.gl/layers";
 
-// const stations = require("./docking-stations-processed.json");
-const bikes = require("./routes-data-final.json");
-const dist = bikes.map((x) => x.distance);
-console.log(Math.min(...dist), Math.max(...dist));
-
 const MAP_STYLE =
   "https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json";
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
 
 const INITIAL_VIEW_STATE = {
-  bearing: -16.308040770101925,
-  latitude: 51.50649650324284,
-  longitude: -0.09651335062531202,
-  pitch: 55.90618336886994,
-  zoom: 11.5,
+  bearing: -18.28425302993724,
+  latitude: 51.506711527928566,
+  longitude: -0.1262307715465074,
+  pitch: 56.89273879990128,
+  zoom: 11.724948776966547,
 };
 
-function Map() {
+function Map(props) {
   const trailLength = 180;
   const step = 1;
-  const intervalMS = 50;
+  const intervalMS = 75;
   const loopLength = 1800;
 
   const [time, setTime] = useState(0);
+  const [viewState, setViewState] = useState(INITIAL_VIEW_STATE);
 
   //every 20 ms update time according to step
   useEffect(() => {
@@ -61,7 +57,7 @@ function Map() {
   const layers = [
     new TripsLayer({
       id: "trips",
-      data: bikes,
+      data: props.data,
       getPath: (d) => d.route,
       getTimestamps: (d) => d.timestamps,
       getColor: (d) => setColourByDistance(d.distance),
@@ -77,8 +73,9 @@ function Map() {
   return (
     <DeckGL
       layers={layers}
-      initialViewState={INITIAL_VIEW_STATE}
+      viewState={viewState}
       controller={true}
+      onViewStateChange={(e) => setViewState(e.viewState)}
     >
       <StaticMap
         reuseMaps
