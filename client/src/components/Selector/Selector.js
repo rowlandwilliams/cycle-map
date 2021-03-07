@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./styles.css";
+import SelectorDashBoard from "./SelectorDashboard";
 import SelectorArrow from "./SelectorArrow";
 
 function Selector() {
@@ -8,13 +9,11 @@ function Selector() {
   const onArrowClick = () => {
     setBoxVisible(!boxVisible);
   };
+
   return (
     <div className="sc-wrapper">
-      <div className={`sc-item sc-item--box ${boxVisible ? "" : "hidden"}`}>
-        SUH
-        <div>SUDEDE</div>
-      </div>
-      <SelectorArrow onArrowClick={onArrowClick} />
+      <SelectorDashBoard boxVisible={boxVisible} />
+      <SelectorArrow onArrowClick={onArrowClick} boxVisible={boxVisible} />
     </div>
   );
 }

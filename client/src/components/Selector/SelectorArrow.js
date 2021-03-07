@@ -1,7 +1,7 @@
 function SelectorArrow(props) {
   return (
     <div className="sc-item sc-item--arrow" onClick={props.onArrowClick}>
-      &#xab;
+      {props.boxVisible ? <span>&#xab;</span> : <span>&#xbb;</span>}
     </div>
   );
 }
