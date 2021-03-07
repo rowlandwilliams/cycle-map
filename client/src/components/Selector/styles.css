@@ -3,7 +3,7 @@
   display: flex;
   z-index: 10;
   margin: 30px 20px;
-  height: calc(100vh - 60px);
+  /* height: calc(100vh - 60px); */
 }
 
 .sc-item {
@@ -12,7 +12,13 @@
 }
 
 .sc-item--box {
-  min-width: 200px;
+  width: 200px;
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.sc-item--box.hidden {
+  width: 0;
 }
 
 .sc-item--arrow {
