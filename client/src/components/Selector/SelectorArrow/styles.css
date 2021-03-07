@@ -1,0 +1,22 @@
+.sc-item--arrow {
+  background-color: var(--light-grey);
+  color: var(--dark-grey);
+  height: 20px;
+  width: 16px;
+  text-align: center;
+  padding: 0 2px;
+  font-size: 22px;
+  opacity: 0.8;
+  position: relative;
+}
+
+.sc-item--arrow:hover {
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.sc-item--arrow span {
+  position: absolute;
+  top: -25%;
+  right: 12.5%;
+}

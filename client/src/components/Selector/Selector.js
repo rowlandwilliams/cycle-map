@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./styles.css";
-import SelectorDashBoard from "./SelectorDashboard";
-import SelectorArrow from "./SelectorArrow";
+import SelectorDashBoard from "./SelectorDashboard/SelectorDashboard";
+import SelectorArrow from "./SelectorArrow/SelectorArrow";
 
 function Selector() {
   const [boxVisible, setBoxVisible] = useState(true);

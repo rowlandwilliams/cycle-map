@@ -1,0 +1,9 @@
+.sc-item--box {
+  width: 200px;
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.sc-item--box.hidden {
+  width: 0;
+}
