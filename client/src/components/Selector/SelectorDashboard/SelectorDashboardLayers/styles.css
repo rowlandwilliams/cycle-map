@@ -34,7 +34,6 @@
 
 .sc-db-layers-dropdown__top-symbols {
   display: flex;
-  font-size: 24px;
   justify-content: space-between;
   align-items: center;
   width: 18%;
@@ -47,7 +46,6 @@
 
 .sc-db-layers-dropdown__top-symbols--plus {
   font-size: 24px;
-  /* transform: translate(0, -5%); */
 }
 
 .sc-db-layers-dropdown__bottom {

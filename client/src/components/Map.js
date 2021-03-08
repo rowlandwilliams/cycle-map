@@ -2,9 +2,9 @@ import { StaticMap } from "react-map-gl";
 import DeckGL from "@deck.gl/react";
 import { TripsLayer } from "@deck.gl/geo-layers";
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const MAP_STYLE = process.env.REACT_APP_MAPBOX_STYLE;
-// ("https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json");
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
 
 const INITIAL_VIEW_STATE = {
@@ -20,6 +20,7 @@ function Map(props) {
   const step = 1;
   const intervalMS = 75;
   const loopLength = 1800;
+  const tripsVisible = useSelector((state) => state.showTrips);
 
   const [time, setTime] = useState(0);
   const [viewState, setViewState] = useState(INITIAL_VIEW_STATE);
@@ -63,6 +64,7 @@ function Map(props) {
       trailLength,
       currentTime: time,
       shadowEnabled: false,
+      visible: tripsVisible,
     }),
   ];
 

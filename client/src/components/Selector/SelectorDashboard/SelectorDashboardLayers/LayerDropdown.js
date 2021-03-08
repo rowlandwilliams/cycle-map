@@ -1,13 +1,18 @@
 import { useState } from "react";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useDispatch } from "react-redux";
+import { showHideLayer } from "../../../../actions/index";
 
 function LayerDropdown(props) {
   const [isOpen, setIsOpen] = useState(props.isOpen);
-  console.log(isOpen);
+  const dispatch = useDispatch();
 
   return (
-    <div className="sc-db-layers-dropdown" onClick={() => setIsOpen(!isOpen)}>
+    <div
+      className="sc-db-layers-dropdown"
+      onClick={() => dispatch(showHideLayer())}
+    >
       <div className="sc-db-layers-dropdown sc-db-layers-dropdown__top">
         <div>{props.layerName}</div>
 
