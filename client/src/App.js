@@ -6,12 +6,14 @@ import Selector from "./components/Selector/Selector";
 import "./App.css";
 
 function App() {
-  const [data, setData] = useState({});
+  const [tripsData, setTripsData] = useState({});
+  const [stationsData, setStationsData] = useState({});
 
   const getMapData = () => {
     getData()
       .then((res) => {
-        setData(res.data);
+        setTripsData(res.data.trips);
+        setStationsData(res.data.stations);
       })
       .catch((err) => console.error(err));
   };
@@ -23,7 +25,7 @@ function App() {
   return (
     <div className="App">
       <Selector />
-      <Map data={data} />
+      <Map tripsData={tripsData} stationsData={stationsData} />
     </div>
   );
 }

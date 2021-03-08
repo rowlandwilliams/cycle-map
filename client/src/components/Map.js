@@ -1,5 +1,6 @@
 import { StaticMap } from "react-map-gl";
 import DeckGL from "@deck.gl/react";
+import { ScatterplotLayer } from "@deck.gl/layers";
 import { TripsLayer } from "@deck.gl/geo-layers";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
@@ -9,10 +10,10 @@ const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
 
 const INITIAL_VIEW_STATE = {
   bearing: -18.28425302993724,
-  latitude: 51.506711527928566,
-  longitude: -0.1262307715465074,
+  latitude: 51.502870571328636,
+  longitude: -0.11321690390138871,
   pitch: 56.89273879990128,
-  zoom: 11.724948776966547,
+  zoom: 12.911048729018757,
 };
 
 function Map(props) {
@@ -20,7 +21,9 @@ function Map(props) {
   const step = 1;
   const intervalMS = 75;
   const loopLength = 1800;
-  const tripsVisible = useSelector((state) => state.showTrips);
+  const tripsVisible = useSelector((state) => state.tripsVisible);
+
+  console.log(props.stationsData);
 
   const [time, setTime] = useState(0);
   const [viewState, setViewState] = useState(INITIAL_VIEW_STATE);
@@ -52,9 +55,25 @@ function Map(props) {
   };
 
   const layers = [
+    new ScatterplotLayer({
+      id: "stations",
+      data: props.stationsData,
+      getPosition: (d) => [d.longitude, d.latitude],
+      getFillColor: [175, 55, 196],
+      pickable: true,
+      opacity: 0.4,
+      stroked: true,
+      filled: true,
+      getRadius: 20,
+      //   radiusScale: 5,
+      //   radiusMinPixels: 3,
+      //   lineWidthMinPixels: 0,
+      // onHover: (info) => setStationInfo(info),
+    }),
+
     new TripsLayer({
       id: "trips",
-      data: props.data,
+      data: props.tripsData,
       getPath: (d) => d.route,
       getTimestamps: (d) => d.timestamps,
       getColor: (d) => setColourByDistance(d.distance),

@@ -1,6 +1,7 @@
 import "./styles.css";
 import { Fragment } from "react";
 import LayerDropdown from "./LayerDropdown";
+import { showHideLayer } from "../../../../actions/index";
 
 function SelectorDashboardLayers() {
   const isOpen = true;

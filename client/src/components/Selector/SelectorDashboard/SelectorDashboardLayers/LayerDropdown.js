@@ -1,38 +1,37 @@
 import { useState } from "react";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { showHideLayer } from "../../../../actions/index";
 
 function LayerDropdown(props) {
   const [isOpen, setIsOpen] = useState(props.isOpen);
+  const tripsVisible = useSelector((state) => state.tripsVisible);
   const dispatch = useDispatch();
 
   return (
-    <div
-      className="sc-db-layers-dropdown"
-      onClick={() => dispatch(showHideLayer())}
-    >
+    <div className="sc-db-layers-dropdown">
       <div className="sc-db-layers-dropdown sc-db-layers-dropdown__top">
         <div>{props.layerName}</div>
 
-        <div
-          className="sc-db-layers-dropdown sc-db-layers-dropdown__top-symbols"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? (
-            <FontAwesomeIcon
-              icon={faEye}
-              className="sc-db-layers-dropdown sc-db-layers-dropdown__top-symbols--fa"
-            />
-          ) : (
-            <FontAwesomeIcon
-              icon={faEyeSlash}
-              className="sc-db-layers-dropdown sc-db-layers-dropdown__top-symbols--fa"
-            />
-          )}
-
-          <div className="sc-db-layers-dropdown sc-db-layers-dropdown__top-symbols--plus">
+        <div className="sc-db-layers-dropdown sc-db-layers-dropdown__top-symbols">
+          <div onClick={() => dispatch(showHideLayer())}>
+            {tripsVisible ? (
+              <FontAwesomeIcon
+                icon={faEye}
+                className="sc-db-layers-dropdown sc-db-layers-dropdown__top-symbols--fa"
+              />
+            ) : (
+              <FontAwesomeIcon
+                icon={faEyeSlash}
+                className="sc-db-layers-dropdown sc-db-layers-dropdown__top-symbols--fa"
+              />
+            )}
+          </div>
+          <div
+            className="sc-db-layers-dropdown sc-db-layers-dropdown__top-symbols--plus"
+            onClick={() => setIsOpen(!isOpen)}
+          >
             {isOpen ? <span>&#x2212;</span> : <span>&#x2b;</span>}
           </div>
         </div>
