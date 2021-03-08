@@ -6,7 +6,9 @@ import { showHideLayer } from "../../../../actions/index";
 
 function LayerDropdown(props) {
   const [isOpen, setIsOpen] = useState(props.isOpen);
-  const tripsVisible = useSelector((state) => state.tripsVisible);
+  const id = props.id;
+  const layerVisible = useSelector((state) => state[id][id]);
+
   const dispatch = useDispatch();
 
   return (
@@ -15,8 +17,8 @@ function LayerDropdown(props) {
         <div>{props.layerName}</div>
 
         <div className="sc-db-layers-dropdown sc-db-layers-dropdown__top-symbols">
-          <div onClick={() => dispatch(showHideLayer())}>
-            {tripsVisible ? (
+          <div onClick={() => dispatch(showHideLayer(props.id))}>
+            {layerVisible ? (
               <FontAwesomeIcon
                 icon={faEye}
                 className="sc-db-layers-dropdown sc-db-layers-dropdown__top-symbols--fa"

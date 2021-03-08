@@ -21,9 +21,11 @@ function Map(props) {
   const step = 1;
   const intervalMS = 75;
   const loopLength = 1800;
-  const tripsVisible = useSelector((state) => state.tripsVisible);
-
-  console.log(props.stationsData);
+  const tripsVisible = useSelector((state) => state.tripsVisible.tripsVisible);
+  const stationsVisible = useSelector(
+    (state) => state.stationsVisible.stationsVisible
+  );
+  // console.log(tripsVisible, stationsVisible);
 
   const [time, setTime] = useState(0);
   const [viewState, setViewState] = useState(INITIAL_VIEW_STATE);
@@ -65,6 +67,7 @@ function Map(props) {
       stroked: true,
       filled: true,
       getRadius: 20,
+      visible: stationsVisible,
       //   radiusScale: 5,
       //   radiusMinPixels: 3,
       //   lineWidthMinPixels: 0,
