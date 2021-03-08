@@ -1,17 +1,22 @@
 .sc-db {
   width: 250px;
   transition: 0.5s;
-  overflow: hidden;
   background-color: var(--dark-grey);
   margin-right: 5px;
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
 }
 
 .sc-db.hidden {
   width: 0;
+  overflow: hidden;
 }
 
 .sc-db-title {
   padding: 10px;
+  font-weight: bold;
+  background-color: var(--mid-grey);
 }
 
 .sc-db-title-row1 {
@@ -39,6 +44,7 @@
   overflow: hidden;
   transition: height 0.25s ease-out;
   font-size: 10px;
+  font-weight: normal;
 }
 
 .sc-db-title-row1:hover ~ .sc-db-title-row2 {

@@ -78,18 +78,7 @@ function Map(props) {
         mapStyle={MAP_STYLE}
         preventStyleDiffing={true}
         mapboxApiAccessToken={MAPBOX_TOKEN}
-      >
-        <div
-          style={{
-            margin: "0.5rem",
-            fontFamily: "monospace",
-            fontSize: "18px",
-            color: "white",
-          }}
-        >
-          Current Time: {time}
-        </div>
-      </StaticMap>
+      ></StaticMap>
     </DeckGL>
   );
 }

@@ -3,6 +3,9 @@
 }
 
 :root {
-  --dark-grey: #263d52;
-  --light-grey: #a5bacc;
+  --dark-grey: #0e111a;
+  --mid-grey: #1c2233;
+  --light-grey: #ffffff;
+  --text-grey: #ffffff;
+  --line-grey: #1c2233;
 }

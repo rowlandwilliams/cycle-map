@@ -1,0 +1,47 @@
+.sc-db-layers-title,
+.sc-db-layers-wrapper {
+  padding: 5px;
+}
+
+.sc-db-layers-title {
+  font-size: 18px;
+  margin: 10px 5px 5px;
+  border-bottom: 0.5px solid var(--line-grey);
+}
+
+.sc-db-layers-wrapper {
+  overflow: scroll;
+  flex: 1;
+}
+
+.sc-db-layers-dropdown {
+  background-color: var(--mid-grey);
+  margin: 5px 0px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.sc-db-layers-dropdown:hover {
+  opacity: 1;
+}
+
+.sc-db-layers-dropdown__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 5px 0px 5px;
+}
+
+.sc-db-layers-dropdown__top--symbol {
+  font-size: 24px;
+  transform: translate(0, -5%);
+}
+
+.sc-db-layers-dropdown__bottom {
+  height: 0;
+  overflow: hidden;
+}
+
+.sc-db-layers-dropdown__bottom.open {
+  height: auto;
+}
