@@ -1,12 +1,13 @@
 // contents of Selector
 import "./styles.css";
+import SelectorDashboardTitle from "./SelectorDashboardTitle";
 
-function SelectorDashBoard(props) {
+function SelectorDashboard(props) {
   return (
-    <div className={`sc-item sc-item--box ${props.boxVisible ? "" : "hidden"}`}>
-      <div>SUDEDE</div>
+    <div className={`sc-db ${props.boxVisible ? "" : "hidden"}`}>
+      <SelectorDashboardTitle />
     </div>
   );
 }
 
-export default SelectorDashBoard;
+export default SelectorDashboard;
