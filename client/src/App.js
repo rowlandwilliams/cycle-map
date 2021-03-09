@@ -2,7 +2,7 @@ import { getData } from "./requests/getData";
 import { useState, useEffect } from "react";
 
 import Map from "./components/Map";
-import Selector from "./components/Selector/Selector";
+import Selector from "./components/Selector";
 import "./App.css";
 
 function App() {
