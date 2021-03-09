@@ -19,7 +19,12 @@ function SelectorDashboardLayers() {
           <SliderBox
             title="Tail-length"
             valueBgColor="rgb(253, 128, 93)"
-            // sliderId="tripsLayer"
+            id="tripsSlider"
+          />
+          <SliderBox
+            title="Tail-length"
+            valueBgColor="rgb(253, 128, 93)"
+            id="testSlider"
           />
         </LayerDropdown>
         <LayerDropdown

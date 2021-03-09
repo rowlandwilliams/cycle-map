@@ -25,7 +25,9 @@ function Map(props) {
   const stationsVisible = useSelector(
     (state) => state.stationsVisible.stationsVisible
   );
-  const trailLength = useSelector((state) => Number(state.tripsSlider.value));
+  const trailLength = useSelector((state) =>
+    Number(state.tripsSlider.tripsSlider.value)
+  );
 
   const [time, setTime] = useState(0);
   const [viewState, setViewState] = useState(INITIAL_VIEW_STATE);

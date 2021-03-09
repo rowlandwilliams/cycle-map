@@ -4,7 +4,10 @@ import { changeSlider } from "../../../../../actions/index";
 import "./styles.css";
 
 function SliderBox(props) {
-  const tripsSlider = useSelector((state) => state.tripsSlider);
+  const id = props.id;
+
+  const tripsSlider = useSelector((state) => state[id][id]);
+  console.log(tripsSlider);
   const dispatch = useDispatch();
 
   return (
@@ -18,7 +21,7 @@ function SliderBox(props) {
           max={tripsSlider.max}
           step={tripsSlider.step}
           value={tripsSlider.value}
-          onChange={(e) => dispatch(changeSlider(e))}
+          onChange={(e) => dispatch(changeSlider(e, id))}
         />
         <div
           className="sc-db-slider sc-db-slider__row2 sc-db-slider__row2--value"

@@ -1,9 +1,6 @@
 const initialState = {
-  defaultValue: 180,
-  value: 180,
-  min: 0,
-  max: 180,
-  step: 1,
+  tripsSlider: { defaultValue: 180, value: 180, min: 0, max: 180, step: 1 },
+  testSlider: { defaultValue: 120, value: 120, min: 0, max: 180, step: 1 },
 };
 
 const changeSliderReducer = (state = initialState, action) => {
@@ -11,7 +8,10 @@ const changeSliderReducer = (state = initialState, action) => {
     case "CHANGE": {
       return {
         ...state,
-        value: action.value,
+        [action.id]: {
+          ...state[action.id],
+          value: [action.value],
+        },
       };
     }
     default:
