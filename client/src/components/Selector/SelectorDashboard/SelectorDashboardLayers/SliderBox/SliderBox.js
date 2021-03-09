@@ -22,7 +22,7 @@ function SliderBox(props) {
         />
         <div
           className="sc-db-slider sc-db-slider__row2 sc-db-slider__row2--value"
-          style={{ backgroundColor: props.bgColor }}
+          style={{ backgroundColor: props.valueBgColor }}
         >
           {tripsSlider.value}
         </div>

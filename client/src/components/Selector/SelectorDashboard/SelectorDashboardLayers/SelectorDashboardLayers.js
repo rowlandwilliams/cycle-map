@@ -1,7 +1,7 @@
 import "./styles.css";
 import { Fragment } from "react";
 import LayerDropdown from "./LayerDropdown";
-import TripsController from "./TripsController";
+import SliderBox from "./SliderBox/SliderBox";
 
 function SelectorDashboardLayers() {
   const isOpen = true;
@@ -14,8 +14,13 @@ function SelectorDashboardLayers() {
           isOpen={isOpen}
           leftColour="rgb(253, 128, 93)"
           id="tripsVisible"
+          sliderId="tripsTrailLength"
         >
-          <TripsController />
+          <SliderBox
+            title="Tail-length"
+            valueBgColor="rgb(253, 128, 93)"
+            // sliderId="tripsLayer"
+          />
         </LayerDropdown>
         <LayerDropdown
           layerName="Stations"
