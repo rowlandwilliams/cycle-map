@@ -4,13 +4,9 @@ import SelectorRightBox from "./SelectorRightBox/SelectorRightBox";
 function SelectorRight() {
   return (
     <Fragment>
-      <SelectorRightBox icon="?">suh</SelectorRightBox>
-      <SelectorRightBox icon="?">
-        <div>Some infromationbf nideidei</div>
-      </SelectorRightBox>
-      <SelectorRightBox icon="?">
-        <div>suh</div>
-      </SelectorRightBox>
+      <SelectorRightBox icon="?" tooltip="Map Info"></SelectorRightBox>
+      <SelectorRightBox icon="L" tooltip="Legend"></SelectorRightBox>
+      <SelectorRightBox icon="3D" tooltip="3D-Map"></SelectorRightBox>
     </Fragment>
   );
 }

@@ -1,18 +1,49 @@
 .sc-rb {
-  background-color: rebeccapurple;
   display: flex;
-  flex-direction: column;
-  /* justify-content: center; */
-  text-align: center;
-}
-
-.sc-rb__content {
-  height: 0;
-  width: 0;
-  overflow: hidden;
-}
-
-.sc-rb__content.open {
-  height: auto;
+  justify-content: flex-end;
+  align-items: center;
   width: auto;
+  text-align: center;
+  white-space: nowrap;
+  margin-bottom: 5px;
+}
+
+.sc-rb__icon--icon {
+  position: relative;
+  display: inline-block;
+  background-color: var(--dark-grey);
+  width: 30px;
+  height: 30px;
+  padding-top: 5px;
+}
+
+.sc-rb__icon--icon:hover {
+  background-color: #6a7385;
+  color: var(--dark-grey);
+}
+
+/* Tooltip text */
+.sc-rb__icon--icon .sc-rb__icon--tooltip {
+  visibility: hidden;
+  text-align: center;
+  padding: 3px 5px;
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.sc-rb__icon--icon:hover .sc-rb__icon--tooltip {
+  visibility: visible;
+  transform: visibility 0.5s ease-in;
+}
+
+.sc-rb__icon--tooltip {
+  font-size: 12px;
+  background-color: #6a7385;
+  border-radius: 3px;
+}
+
+.sc-rb__icon--icon .sc-rb__icon--tooltip {
+  top: 5px;
+  right: 120%;
 }
