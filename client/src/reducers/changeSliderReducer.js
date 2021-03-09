@@ -11,6 +11,12 @@ const initialState = {
     max: 10,
     step: 1,
   },
+  stationsWidthSlider: {
+    value: 20,
+    min: 20,
+    max: 50,
+    step: 1,
+  },
 };
 
 const changeSliderReducer = (state = initialState, action) => {

@@ -2,7 +2,8 @@ import { useState } from "react";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSelector, useDispatch } from "react-redux";
-import { showHideLayer } from "../../../../actions/index";
+import { showHideLayer } from "../../../../../actions/index";
+import "./styles.css";
 
 function LayerDropdown(props) {
   const [isOpen, setIsOpen] = useState(props.isOpen);

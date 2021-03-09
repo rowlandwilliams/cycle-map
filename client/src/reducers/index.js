@@ -8,6 +8,7 @@ const allReducers = combineReducers({
   stationsVisible: showLayerReducer,
   tripsLengthSlider: changeSliderReducer,
   tripsWidthSlider: changeSliderReducer,
+  stationsWidthSlider: changeSliderReducer,
 });
 
 export default allReducers;

@@ -25,11 +25,14 @@ function Map(props) {
   const stationsVisible = useSelector(
     (state) => state.stationsVisible.stationsVisible
   );
-  const trailLength = useSelector((state) =>
+  const tripLength = useSelector((state) =>
     Number(state.tripsLengthSlider.tripsLengthSlider.value)
   );
-  const trailWidth = useSelector((state) =>
+  const tripWidth = useSelector((state) =>
     Number(state.tripsWidthSlider.tripsWidthSlider.value)
+  );
+  const stationsWidth = useSelector((state) =>
+    Number(state.stationsWidthSlider.stationsWidthSlider.value)
   );
 
   const [time, setTime] = useState(0);
@@ -71,12 +74,8 @@ function Map(props) {
       opacity: 0.4,
       stroked: true,
       filled: true,
-      getRadius: 20,
+      getRadius: stationsWidth,
       visible: stationsVisible,
-      //   radiusScale: 5,
-      //   radiusMinPixels: 3,
-      //   lineWidthMinPixels: 0,
-      // onHover: (info) => setStationInfo(info),
     }),
 
     new TripsLayer({
@@ -86,9 +85,9 @@ function Map(props) {
       getTimestamps: (d) => d.timestamps,
       getColor: (d) => setColourByDistance(d.distance),
       opacity: 0.3,
-      widthMinPixels: trailWidth,
+      widthMinPixels: tripWidth,
       rounded: true,
-      trailLength: trailLength,
+      trailLength: tripLength,
       currentTime: time,
       shadowEnabled: false,
       visible: tripsVisible,

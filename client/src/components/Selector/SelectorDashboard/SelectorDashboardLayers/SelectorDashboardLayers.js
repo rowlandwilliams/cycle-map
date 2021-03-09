@@ -1,6 +1,6 @@
 import "./styles.css";
 import { Fragment } from "react";
-import LayerDropdown from "./LayerDropdown";
+import LayerDropdown from "./LayerDropdown/LayerDropdown";
 import SliderBox from "./SliderBox/SliderBox";
 
 function SelectorDashboardLayers() {
@@ -32,7 +32,13 @@ function SelectorDashboardLayers() {
           isOpen={!isOpen}
           leftColour="rgb(175, 55, 196)"
           id="stationsVisible"
-        />
+        >
+          <SliderBox
+            title="Radius"
+            valueBgColor="rgb(175, 55, 196)"
+            id="stationsWidthSlider"
+          />
+        </LayerDropdown>
       </div>
     </Fragment>
   );
