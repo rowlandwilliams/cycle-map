@@ -5,29 +5,29 @@ import "./styles.css";
 
 function SliderBox(props) {
   const id = props.id;
+  console.log(id);
 
-  const tripsSlider = useSelector((state) => state[id][id]);
-  console.log(tripsSlider);
+  const slider = useSelector((state) => state[id][id]);
   const dispatch = useDispatch();
 
   return (
     <div className="sc-db-slider">
-      <div>Tail-length: </div>
+      <div>{props.title}</div>
       <div className="sc-db-slider sc-db-slider__row2">
         <input
           style={{ width: "50%" }}
           type="range"
-          min={tripsSlider.min}
-          max={tripsSlider.max}
-          step={tripsSlider.step}
-          value={tripsSlider.value}
+          min={slider.min}
+          max={slider.max}
+          step={slider.step}
+          value={slider.value}
           onChange={(e) => dispatch(changeSlider(e, id))}
         />
         <div
           className="sc-db-slider sc-db-slider__row2 sc-db-slider__row2--value"
           style={{ backgroundColor: props.valueBgColor }}
         >
-          {tripsSlider.value}
+          {slider.value}
         </div>
       </div>
     </div>

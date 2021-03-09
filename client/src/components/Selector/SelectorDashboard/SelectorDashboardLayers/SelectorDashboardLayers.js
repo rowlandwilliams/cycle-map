@@ -17,14 +17,14 @@ function SelectorDashboardLayers() {
           sliderId="tripsTrailLength"
         >
           <SliderBox
-            title="Tail-length"
+            title="Length"
             valueBgColor="rgb(253, 128, 93)"
-            id="tripsSlider"
+            id="tripsLengthSlider"
           />
           <SliderBox
-            title="Tail-length"
+            title="Width"
             valueBgColor="rgb(253, 128, 93)"
-            id="testSlider"
+            id="tripsWidthSlider"
           />
         </LayerDropdown>
         <LayerDropdown

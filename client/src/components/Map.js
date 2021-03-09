@@ -26,7 +26,10 @@ function Map(props) {
     (state) => state.stationsVisible.stationsVisible
   );
   const trailLength = useSelector((state) =>
-    Number(state.tripsSlider.tripsSlider.value)
+    Number(state.tripsLengthSlider.tripsLengthSlider.value)
+  );
+  const trailWidth = useSelector((state) =>
+    Number(state.tripsWidthSlider.tripsWidthSlider.value)
   );
 
   const [time, setTime] = useState(0);
@@ -83,7 +86,7 @@ function Map(props) {
       getTimestamps: (d) => d.timestamps,
       getColor: (d) => setColourByDistance(d.distance),
       opacity: 0.3,
-      widthMinPixels: 3,
+      widthMinPixels: trailWidth,
       rounded: true,
       trailLength: trailLength,
       currentTime: time,

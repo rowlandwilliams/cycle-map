@@ -1,6 +1,6 @@
 .sc-db-slider {
   width: 100%;
-  padding: 5px;
+  padding: 5px 10px;
 }
 
 .sc-db-slider__row2 {
@@ -12,8 +12,9 @@
 .sc-db-slider__row2--value {
   border-radius: 3px;
   text-align: center;
-  flex: 0 15%;
-  margin-left: 3px;
+  /* flex: 0 15%; */
+  width: 40px;
+  margin-left: 5px;
   opacity: 0.8;
 }
 

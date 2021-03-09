@@ -6,8 +6,8 @@ import { combineReducers } from "redux";
 const allReducers = combineReducers({
   tripsVisible: showLayerReducer,
   stationsVisible: showLayerReducer,
-  tripsSlider: changeSliderReducer,
-  testSlider: changeSliderReducer,
+  tripsLengthSlider: changeSliderReducer,
+  tripsWidthSlider: changeSliderReducer,
 });
 
 export default allReducers;
