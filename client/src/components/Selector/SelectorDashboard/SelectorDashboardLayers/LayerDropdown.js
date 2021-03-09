@@ -46,7 +46,7 @@ function LayerDropdown(props) {
           isOpen ? "open" : ""
         }`}
       >
-        <div>suh</div>
+        {props.children}
       </div>
     </div>
   );

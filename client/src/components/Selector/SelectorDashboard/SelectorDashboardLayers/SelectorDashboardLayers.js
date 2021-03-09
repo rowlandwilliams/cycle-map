@@ -1,6 +1,7 @@
 import "./styles.css";
 import { Fragment } from "react";
 import LayerDropdown from "./LayerDropdown";
+import TripsController from "./TripsController";
 
 function SelectorDashboardLayers() {
   const isOpen = true;
@@ -13,7 +14,9 @@ function SelectorDashboardLayers() {
           isOpen={isOpen}
           leftColour="rgb(253, 128, 93)"
           id="tripsVisible"
-        />
+        >
+          <TripsController />
+        </LayerDropdown>
         <LayerDropdown
           layerName="Stations"
           isOpen={!isOpen}
