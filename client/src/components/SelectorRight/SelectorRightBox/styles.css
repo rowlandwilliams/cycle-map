@@ -1,0 +1,18 @@
+.sc-rb {
+  background-color: rebeccapurple;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  text-align: center;
+}
+
+.sc-rb__content {
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+.sc-rb__content.open {
+  height: auto;
+  width: auto;
+}

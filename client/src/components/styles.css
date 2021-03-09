@@ -1,0 +1,20 @@
+.sc {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  z-index: 10;
+  padding: 30px 20px;
+  justify-content: space-between;
+}
+
+.sc-left {
+  display: flex;
+}
+
+.sc-right {
+}
+
+.sc-item {
+  background-color: var(--dark-grey);
+  margin-right: 5px;
+}

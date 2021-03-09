@@ -1,0 +1,55 @@
+.sc-db {
+  width: 250px;
+  transition: 0.5s;
+  background-color: var(--dark-grey);
+  margin-right: 5px;
+  height: auto;
+  /* height: calc(100vh - 60px); */
+  display: flex;
+  flex-direction: column;
+}
+
+.sc-db.hidden {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.sc-db-title {
+  padding: 10px;
+  font-weight: bold;
+  background-color: var(--mid-grey);
+}
+
+.sc-db-title-row1 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.sc-db-title-row1__qm {
+  background-color: var(--light-grey);
+  color: var(--dark-grey);
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  opacity: 0.8;
+  pointer-events: auto;
+}
+
+.sc-db-title-row1__qm:hover {
+  opacity: 1;
+}
+
+.sc-db-title-row2 {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.25s ease-out;
+  font-size: 10px;
+  font-weight: normal;
+}
+
+.sc-db-title-row1:hover ~ .sc-db-title-row2 {
+  height: 50px;
+  transition: height 0.25s ease-in;
+}
