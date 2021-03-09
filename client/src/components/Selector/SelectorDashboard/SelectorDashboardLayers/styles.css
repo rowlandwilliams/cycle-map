@@ -15,8 +15,7 @@
 }
 
 .sc-db-layers-dropdown {
-  background-color: var(--mid-grey);
-  margin: 5px 0px;
+  margin: 2.55px 0px;
   font-size: 14px;
   opacity: 0.8;
 }
@@ -26,10 +25,12 @@
 }
 
 .sc-db-layers-dropdown__top {
+  background-color: var(--mid-grey);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2px 5px 0px 5px;
+  padding: 5px;
+  border-radius: 3px;
 }
 
 .sc-db-layers-dropdown__top-symbols {

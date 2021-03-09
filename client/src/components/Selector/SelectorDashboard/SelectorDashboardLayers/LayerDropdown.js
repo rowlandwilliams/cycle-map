@@ -13,7 +13,10 @@ function LayerDropdown(props) {
 
   return (
     <div className="sc-db-layers-dropdown">
-      <div className="sc-db-layers-dropdown sc-db-layers-dropdown__top">
+      <div
+        className="sc-db-layers-dropdown sc-db-layers-dropdown__top"
+        style={{ borderLeft: `5px solid ${props.leftColour}` }}
+      >
         <div>{props.layerName}</div>
 
         <div className="sc-db-layers-dropdown sc-db-layers-dropdown__top-symbols">

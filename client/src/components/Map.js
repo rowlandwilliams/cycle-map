@@ -25,7 +25,6 @@ function Map(props) {
   const stationsVisible = useSelector(
     (state) => state.stationsVisible.stationsVisible
   );
-  // console.log(tripsVisible, stationsVisible);
 
   const [time, setTime] = useState(0);
   const [viewState, setViewState] = useState(INITIAL_VIEW_STATE);
