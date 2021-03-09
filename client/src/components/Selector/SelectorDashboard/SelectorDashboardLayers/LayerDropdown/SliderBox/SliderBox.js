@@ -1,11 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
-import { changeSlider } from "../../../../../actions/index";
+import { changeSlider } from "../../../../../../actions/index";
 
 import "./styles.css";
 
 function SliderBox(props) {
   const id = props.id;
-  console.log(id);
 
   const slider = useSelector((state) => state[id][id]);
   const dispatch = useDispatch();
