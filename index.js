@@ -1,10 +1,13 @@
 require("dotenv").config();
 const express = require("express");
 const path = require("path");
+const sslRedirect = require("heroku-ssl-redirect").default;
+
 const trips = require("./data/raw/json/routes-data-final.json");
 const stations = require("./data/raw/json/docking-stations-processed.json");
 
 const app = express();
+app.use(sslRedirect());
 
 const PORT = process.env.PORT || 3000;
 
