@@ -16,12 +16,7 @@ function TripsController() {
         max={tripsSlider.max}
         step={tripsSlider.step}
         value={tripsSlider.value}
-        onChange={(e) =>
-          dispatch({
-            type: "CHANGE",
-            value: e.target.value,
-          })
-        }
+        onChange={(e) => dispatch(changeSlider(e))}
       />
     </Fragment>
   );

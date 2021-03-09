@@ -19,24 +19,16 @@ const INITIAL_VIEW_STATE = {
 function Map(props) {
   const step = 1;
   const intervalMS = 75;
-  const intervalMS2 = 1000;
-
   const loopLength = 1800;
+
   const tripsVisible = useSelector((state) => state.tripsVisible.tripsVisible);
   const stationsVisible = useSelector(
     (state) => state.stationsVisible.stationsVisible
   );
-  // const trailLength = useSelector((state) => state.tripsSlider.value);
-  // console.log(trailLength);
+  const trailLength = useSelector((state) => Number(state.tripsSlider.value));
 
   const [time, setTime] = useState(0);
   const [viewState, setViewState] = useState(INITIAL_VIEW_STATE);
-  const [test, setTest] = useState(180);
-
-  // console.log(test);
-  // useEffect(() => {
-  //   setTest(trailLength);
-  // }, [trailLength]);
 
   //every 20 ms update time according to step
   useEffect(() => {
@@ -46,14 +38,6 @@ function Map(props) {
 
     return () => clearInterval(interval);
   }, []);
-
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setTest((t) => t - 5);
-  //   }, intervalMS2);
-
-  //   return () => clearInterval(interval);
-  // }, []);
 
   const setColourByDistance = (distance) => {
     switch (true) {
@@ -99,7 +83,7 @@ function Map(props) {
       opacity: 0.3,
       widthMinPixels: 3,
       rounded: true,
-      trailLength: test,
+      trailLength: trailLength,
       currentTime: time,
       shadowEnabled: false,
       visible: tripsVisible,
