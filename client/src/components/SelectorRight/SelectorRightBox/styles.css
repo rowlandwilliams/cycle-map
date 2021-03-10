@@ -1,12 +1,14 @@
+.sc-rb-wrapper {
+  margin-bottom: 5px;
+}
+
 .sc-rb {
   display: flex;
   flex-direction: column;
-  /* justify-content: flex-end; */
   align-items: flex-end;
   width: auto;
   text-align: center;
   white-space: nowrap;
-  margin-bottom: 5px;
 }
 
 .sc-rb__icon--icon {
@@ -52,8 +54,12 @@
 .sc-rb__content {
   height: 0;
   overflow: hidden;
+  background-color: var(--dark-grey);
+  font-size: 10px;
 }
 
 .sc-rb__content.open {
+  max-width: 200px;
   height: auto;
+  padding: 5px;
 }

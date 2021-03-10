@@ -5,16 +5,18 @@ function SelectorRightBox(props) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="sc-rb">
-      <div className="sc-rb sc-rb__icon" onClick={() => setIsOpen(!isOpen)}>
-        <div className="sc-rb sc-rb__icon sc-rb__icon--icon">
-          {props.icon}
-          <span className="sc-rb sc-rb__icon sc-rb__icon--tooltip">
-            {props.tooltip}
-          </span>
-        </div>
-        <div className={`sc-rb sc-rb__content ${isOpen ? "open" : ""}`}>
-          {props.children}
+    <div className="sc-rb-wrapper">
+      <div className="sc-rb">
+        <div className="sc-rb sc-rb__icon" onClick={() => setIsOpen(!isOpen)}>
+          <div className="sc-rb sc-rb__icon sc-rb__icon--icon">
+            {props.icon}
+            <span className="sc-rb sc-rb__icon sc-rb__icon--tooltip">
+              {props.tooltip}
+            </span>
+          </div>
+          <div className={`sc-rb sc-rb__content ${isOpen ? "open" : ""}`}>
+            {props.children}
+          </div>
         </div>
       </div>
     </div>
@@ -22,14 +24,3 @@ function SelectorRightBox(props) {
 }
 
 export default SelectorRightBox;
-// <div className={`sc-rb sc-rb__content ${isOpen ? "open" : ""}`}>
-//         {props.children}
-//       </div>
-
-// <div className="sc-rb sc-rb__icon sc-rb__icon--icon">{props.icon}</div>
-//         <div className="sc-rb sc-rb__icon sc-rb__icon--tooltip">
-//           {props.tooltip}
-//         // </div>
-
-// 534 Santander bike trips taken across Central London from 08:00 -
-//           // 08:30am on January 4th 2021.
