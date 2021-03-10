@@ -16,6 +16,10 @@ const INITIAL_VIEW_STATE = {
   zoom: 12.911048729018757,
 };
 
+const { setColourByDistance } = require("./utils/setColourByDistance");
+const tripColours = require("./utils/tripColours.json")[0].rgb;
+console.log(tripColours);
+
 function Map(props) {
   const step = 1;
   const intervalMS = 75;
@@ -47,23 +51,6 @@ function Map(props) {
     return () => clearInterval(interval);
   }, []);
 
-  const setColourByDistance = (distance) => {
-    switch (true) {
-      case distance < 5000:
-        return [253, 128, 93]; //orange
-      case distance < 10000:
-        return [48, 201, 133]; // green
-      case distance < 15000:
-        return [184, 67, 217]; // purple
-      case distance < 20000:
-        return [216, 237, 59];
-      case distance < 25000:
-        return [217, 67, 67];
-      default:
-        return [43, 252, 50];
-    }
-  };
-
   const layers = [
     new ScatterplotLayer({
       id: "stations",
@@ -83,7 +70,7 @@ function Map(props) {
       data: props.tripsData,
       getPath: (d) => d.route,
       getTimestamps: (d) => d.timestamps,
-      getColor: (d) => setColourByDistance(d.distance),
+      getColor: (d) => setColourByDistance(d.distance, tripColours),
       opacity: 0.3,
       widthMinPixels: tripWidth,
       rounded: true,

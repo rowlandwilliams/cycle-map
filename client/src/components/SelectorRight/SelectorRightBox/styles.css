@@ -55,11 +55,11 @@
   height: 0;
   overflow: hidden;
   background-color: var(--dark-grey);
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .sc-rb__content.open {
   max-width: 200px;
   height: auto;
-  padding: 5px;
+  padding: 10px;
 }
