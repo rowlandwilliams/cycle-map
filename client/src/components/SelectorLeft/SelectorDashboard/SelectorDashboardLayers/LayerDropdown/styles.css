@@ -1,3 +1,12 @@
+.sc-db-layers-dropdown-wrapper {
+  border-radius: 3px;
+  display: flex;
+  background-color: var(--mid-grey);
+}
+
+.sc-db-layers-dropdown-wrapper__border {
+  width: 5px;
+}
 .sc-db-layers-dropdown {
   margin: 2.55px 0px;
   font-size: 14px;
@@ -9,12 +18,13 @@
 }
 
 .sc-db-layers-dropdown__top {
+  flex: calc(100% - 2px);
   background-color: var(--mid-grey);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-left: 5px;
   padding: 5px;
-  border-radius: 3px;
 }
 
 .sc-db-layers-dropdown__top-symbols {

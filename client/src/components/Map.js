@@ -59,7 +59,7 @@ function Map(props) {
       id: "stations",
       data: props.stationsData,
       getPosition: (d) => [d.longitude, d.latitude],
-      getFillColor: [175, 55, 196],
+      getFillColor: [50, 168, 82],
       pickable: true,
       opacity: 0.4,
       stroked: true,

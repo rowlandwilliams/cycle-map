@@ -15,20 +15,21 @@ function SelectorDashboardLayers() {
           leftColour="rgb(253, 128, 93)"
           id="tripsVisible"
           sliderId="tripsTrailLength"
+          bgImage="linear-gradient(#213e9a, #3f31a7, #df412c, #f9e232)"
         >
           <SliderBox
             title="Length"
-            valueBgColor="rgb(253, 128, 93)"
+            valueBgColor="linear-gradient(#213e9a, #3f31a7, #df412c, #f9e232)"
             id="tripsLengthSlider"
           />
           <SliderBox
             title="Width"
-            valueBgColor="rgb(253, 128, 93)"
             id="tripsWidthSlider"
+            valueBgColor="linear-gradient(#213e9a, #3f31a7, #df412c, #f9e232)"
           />
           <SliderBox
             title="Opacity"
-            valueBgColor="rgb(253, 128, 93)"
+            valueBgColor="linear-gradient(#213e9a, #3f31a7, #df412c, #f9e232)"
             id="tripsOpacitySlider"
           />
         </LayerDropdown>
@@ -37,6 +38,7 @@ function SelectorDashboardLayers() {
           isOpen={!isOpen}
           leftColour="rgb(175, 55, 196)"
           id="stationsVisible"
+          bgColor="#32a852"
         >
           <SliderBox
             title="Radius"
