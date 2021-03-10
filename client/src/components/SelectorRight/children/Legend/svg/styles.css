@@ -1,0 +1,16 @@
+.lg-container {
+  text-align: left;
+}
+
+.lg-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 180px;
+  padding: 5px 10px;
+}
+
+.trip-svg {
+  height: 20px;
+  width: 80%;
+}
