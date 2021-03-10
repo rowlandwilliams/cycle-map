@@ -5,6 +5,8 @@ import { TripsLayer } from "@deck.gl/geo-layers";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
+import "./styles.css";
+
 const MAP_STYLE = process.env.REACT_APP_MAPBOX_STYLE;
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
 
@@ -24,6 +26,8 @@ function Map(props) {
   const step = 1;
   const intervalMS = 75;
   const loopLength = 1800;
+
+  const [stationInfo, setStationInfo] = useState({});
 
   const tripsVisible = useSelector((state) => state.tripsVisible.tripsVisible);
   const stationsVisible = useSelector(
@@ -66,6 +70,7 @@ function Map(props) {
       filled: true,
       getRadius: stationWidth,
       visible: stationsVisible,
+      onHover: (info) => setStationInfo(info),
     }),
 
     new TripsLayer({
@@ -96,7 +101,22 @@ function Map(props) {
         mapStyle={MAP_STYLE}
         preventStyleDiffing={true}
         mapboxApiAccessToken={MAPBOX_TOKEN}
-      ></StaticMap>
+      />
+      {stationInfo.object && (
+        <div
+          className="st-ttip"
+          style={{
+            position: "absolute",
+            zIndex: 1,
+            pointerEvents: "none",
+            left: stationInfo.x,
+            top: stationInfo.y,
+            padding: "10px",
+          }}
+        >
+          {stationInfo.object.station_name}
+        </div>
+      )}
     </DeckGL>
   );
 }
