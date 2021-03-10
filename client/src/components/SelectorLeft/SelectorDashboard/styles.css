@@ -21,3 +21,9 @@
   font-weight: bold;
   border-bottom: 0.5px solid var(--line-grey);
 }
+
+@media (max-width: 600px) {
+  .sc-db {
+    margin-bottom: 5px;
+  }
+}
