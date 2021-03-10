@@ -1,7 +1,8 @@
 .sc-rb {
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  flex-direction: column;
+  /* justify-content: flex-end; */
+  align-items: flex-end;
   width: auto;
   text-align: center;
   white-space: nowrap;
@@ -46,4 +47,13 @@
 .sc-rb__icon--icon .sc-rb__icon--tooltip {
   top: 5px;
   right: 120%;
+}
+
+.sc-rb__content {
+  height: 0;
+  overflow: hidden;
+}
+
+.sc-rb__content.open {
+  height: auto;
 }

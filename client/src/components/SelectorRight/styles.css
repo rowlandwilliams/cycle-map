@@ -4,3 +4,9 @@
   right: 20px;
   z-index: 10;
 }
+
+.map-info {
+  width: 200px;
+  white-space: normal;
+  word-wrap: break-word;
+}
