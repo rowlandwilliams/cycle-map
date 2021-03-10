@@ -1,3 +1,7 @@
 .lg-container {
   padding: 10px;
 }
+
+.lg-container.empty {
+  padding: 0;
+}
