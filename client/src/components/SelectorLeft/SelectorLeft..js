@@ -1,10 +1,9 @@
 import { useState } from "react";
-import SelectorDashboard from "./SelectorLeft/SelectorDashboard/SelectorDashboard";
-import SelectorArrow from "./SelectorLeft/SelectorArrow/SelectorArrow";
-import SelectorRight from "./SelectorRight/SelectorRight";
+import SelectorDashboard from "./SelectorDashboard/SelectorDashboard";
+import SelectorArrow from "./SelectorArrow/SelectorArrow";
 import "./styles.css";
 
-function Selector() {
+function SelectorLeft() {
   const [boxVisible, setBoxVisible] = useState(true);
 
   const onArrowClick = () => {
@@ -17,12 +16,8 @@ function Selector() {
         <SelectorDashboard boxVisible={boxVisible} />
         <SelectorArrow onArrowClick={onArrowClick} boxVisible={boxVisible} />
       </div>
-
-      <div className="sc-right">
-        <SelectorRight />
-      </div>
     </div>
   );
 }
 
-export default Selector;
+export default SelectorLeft;

@@ -2,7 +2,8 @@ import { getData } from "./requests/getData";
 import { useState, useEffect } from "react";
 
 import Map from "./components/Map";
-import Selector from "./components/Selector";
+import SelectorLeft from "./components/SelectorLeft/SelectorLeft.";
+import SelectorRight from "./components/SelectorRight/SelectorRight";
 import "./App.css";
 
 function App() {
@@ -24,7 +25,10 @@ function App() {
 
   return (
     <div className="App">
-      <Selector />
+      <SelectorLeft />
+
+      <SelectorRight />
+
       <Map tripsData={tripsData} stationsData={stationsData} />
     </div>
   );

@@ -1,5 +1,4 @@
 .sc {
-  width: 100%;
   position: absolute;
   display: flex;
   z-index: 10;
@@ -9,12 +8,4 @@
 
 .sc-left {
   display: flex;
-}
-
-.sc-right {
-}
-
-.sc-item {
-  background-color: var(--dark-grey);
-  margin-right: 5px;
 }
