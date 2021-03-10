@@ -6,7 +6,7 @@ const initialState = {
     step: 1,
   },
   tripsWidthSlider: {
-    value: 3,
+    value: 10,
     min: 1,
     max: 10,
     step: 1,

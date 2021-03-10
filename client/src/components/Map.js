@@ -71,7 +71,7 @@ function Map(props) {
       getPath: (d) => d.route,
       getTimestamps: (d) => d.timestamps,
       getColor: (d) => setColourByDistance(d.distance, tripColours),
-      opacity: 0.3,
+      opacity: 1,
       widthMinPixels: tripWidth,
       rounded: true,
       trailLength: tripLength,

@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./styles.css";
 
 function SelectorRightBox(props) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(props.isOpen);
 
   return (
     <div className="sc-rb-wrapper">

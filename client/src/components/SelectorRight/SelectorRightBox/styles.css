@@ -54,7 +54,7 @@
 .sc-rb__content {
   height: 0;
   overflow: hidden;
-  background-color: var(--dark-grey);
+  background-color: var(--mid-grey);
   font-size: 12px;
 }
 

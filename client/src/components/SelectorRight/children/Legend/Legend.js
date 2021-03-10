@@ -20,7 +20,7 @@ function Legend() {
         <TripSvg
           key={labels[i]}
           label={labels[i]}
-          startColour="#ffffff"
+          startColour={col}
           endColour={col}
           gradientId={labels[i]}
           svgClass="trip-svg"
