@@ -35,7 +35,10 @@ function Map(props) {
   const tripWidth = useSelector((state) =>
     Number(state.tripsWidthSlider.tripsWidthSlider.value)
   );
-  const stationsWidth = useSelector((state) =>
+  const tripOpacity = useSelector((state) =>
+    Number(state.tripsOpacitySlider.tripsOpacitySlider.value)
+  );
+  const stationWidth = useSelector((state) =>
     Number(state.stationsWidthSlider.stationsWidthSlider.value)
   );
 
@@ -61,7 +64,7 @@ function Map(props) {
       opacity: 0.4,
       stroked: true,
       filled: true,
-      getRadius: stationsWidth,
+      getRadius: stationWidth,
       visible: stationsVisible,
     }),
 
@@ -71,7 +74,7 @@ function Map(props) {
       getPath: (d) => d.route,
       getTimestamps: (d) => d.timestamps,
       getColor: (d) => setColourByDistance(d.distance, tripColours),
-      opacity: 1,
+      opacity: tripOpacity,
       widthMinPixels: tripWidth,
       rounded: true,
       trailLength: tripLength,

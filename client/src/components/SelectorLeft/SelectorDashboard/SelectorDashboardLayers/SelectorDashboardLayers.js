@@ -26,6 +26,11 @@ function SelectorDashboardLayers() {
             valueBgColor="rgb(253, 128, 93)"
             id="tripsWidthSlider"
           />
+          <SliderBox
+            title="Opacity"
+            valueBgColor="rgb(253, 128, 93)"
+            id="tripsOpacitySlider"
+          />
         </LayerDropdown>
         <LayerDropdown
           layerName="Stations"

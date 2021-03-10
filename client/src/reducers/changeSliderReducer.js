@@ -11,6 +11,12 @@ const initialState = {
     max: 10,
     step: 1,
   },
+  tripsOpacitySlider: {
+    value: 1,
+    min: 0,
+    max: 1,
+    step: 0.1,
+  },
   stationsWidthSlider: {
     value: 20,
     min: 20,
