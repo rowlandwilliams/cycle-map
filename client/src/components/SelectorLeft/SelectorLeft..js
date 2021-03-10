@@ -4,7 +4,8 @@ import SelectorArrow from "./SelectorArrow/SelectorArrow";
 import "./styles.css";
 
 function SelectorLeft() {
-  const [boxVisible, setBoxVisible] = useState(true);
+  const width = window.innerWidth;
+  const [boxVisible, setBoxVisible] = useState(width > 600 ? true : false);
 
   const onArrowClick = () => {
     setBoxVisible(!boxVisible);
