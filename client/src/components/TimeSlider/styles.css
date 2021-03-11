@@ -1,0 +1,9 @@
+.sl {
+  position: absolute;
+  z-index: 11;
+  background-color: var(--dark-grey);
+  bottom: 30px;
+  right: 20px;
+  width: calc(100% - 40px);
+  height: 15%;
+}

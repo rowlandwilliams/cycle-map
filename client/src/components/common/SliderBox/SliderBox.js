@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { changeSlider } from "../../../../../../actions/index";
+import { changeSlider } from "../../../actions/index";
 
 import "./styles.css";
 

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Map from "./components/Map";
 import SelectorLeft from "./components/SelectorLeft/SelectorLeft.";
 import SelectorRight from "./components/SelectorRight/SelectorRight";
+import TimeSlider from "./components/TimeSlider/TimeSlider";
 import "./App.css";
 
 function App() {
@@ -26,9 +27,8 @@ function App() {
   return (
     <div className="App">
       <SelectorLeft />
-
       <SelectorRight />
-
+      <TimeSlider />
       <Map tripsData={tripsData} stationsData={stationsData} />
     </div>
   );

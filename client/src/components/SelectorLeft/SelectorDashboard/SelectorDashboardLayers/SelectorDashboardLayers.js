@@ -1,7 +1,7 @@
 import "./styles.css";
 import { Fragment } from "react";
 import LayerDropdown from "./LayerDropdown/LayerDropdown";
-import SliderBox from "./LayerDropdown/SliderBox/SliderBox";
+import SliderBox from "../../../common/SliderBox/SliderBox";
 
 function SelectorDashboardLayers() {
   const isOpen = true;

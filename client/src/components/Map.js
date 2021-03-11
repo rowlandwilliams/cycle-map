@@ -48,14 +48,24 @@ function Map(props) {
   const [time, setTime] = useState(0);
   const [viewState, setViewState] = useState(INITIAL_VIEW_STATE);
 
+  const [isRunning, setIsRunning] = useState(true);
+  const [interval, setCurrentInterval] = useState(null);
+
+  console.log(isRunning);
+  const animate = () => {
+    setTime((t) => (t + step) % loopLength);
+  };
   //every 20 ms update time according to step
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTime((t) => (t + step) % loopLength);
-    }, intervalMS);
+    if (!isRunning) {
+      clearInterval(interval);
+      return;
+    }
+    const currentInterval = setInterval(animate, intervalMS);
+    setCurrentInterval(interval);
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => clearInterval(currentInterval);
+  }, [isRunning]);
 
   const layers = [
     new ScatterplotLayer({
@@ -95,6 +105,12 @@ function Map(props) {
       controller={true}
       onViewStateChange={(e) => setViewState(e.viewState)}
     >
+      <div
+        style={{ backgroundColor: "red" }}
+        onClick={() => setIsRunning(!isRunning)}
+      >
+        STOP
+      </div>
       <StaticMap
         reuseMaps
         mapStyle={MAP_STYLE}

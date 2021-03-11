@@ -12,7 +12,6 @@ function LayerDropdown(props) {
 
   const dispatch = useDispatch();
 
-  console.log(props.bgImage);
 
   return (
     <div className="sc-db-layers-dropdown">
