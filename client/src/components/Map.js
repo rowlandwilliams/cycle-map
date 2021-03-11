@@ -3,7 +3,9 @@ import DeckGL from "@deck.gl/react";
 import { ScatterplotLayer } from "@deck.gl/layers";
 import { TripsLayer } from "@deck.gl/geo-layers";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
+import { startStopAnimation } from "../actions/index";
 
 import "./styles.css";
 
@@ -48,7 +50,10 @@ function Map(props) {
   const [time, setTime] = useState(0);
   const [viewState, setViewState] = useState(INITIAL_VIEW_STATE);
 
-  const [isRunning, setIsRunning] = useState(true);
+  // const [isRunning, setIsRunning] = useState(true);
+  const dispatch = useDispatch();
+  const isRunning = useSelector((state) => state.isRunning.isRunning);
+  console.log(isRunning);
   const [interval, setCurrentInterval] = useState(null);
 
   console.log(isRunning);
@@ -107,7 +112,11 @@ function Map(props) {
     >
       <div
         style={{ backgroundColor: "red" }}
-        onClick={() => setIsRunning(!isRunning)}
+        onClick={() =>
+          dispatch(
+            startStopAnimation(dispatch(startStopAnimation("isRunning")))
+          )
+        }
       >
         STOP
       </div>
