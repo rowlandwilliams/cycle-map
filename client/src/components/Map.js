@@ -23,17 +23,19 @@ const INITIAL_VIEW_STATE = {
 const { setColourByDistance } = require("./utils/setColourByDistance");
 const tripColours = require("./utils/tripColours.json")[0].rgb;
 
+// animation parameters
+const step = 1;
+const intervalMS = 75;
+const loopLength = 1800;
+
 function Map(props) {
-  const step = 1;
-  const intervalMS = 75;
-  const loopLength = 1800;
-
-  const [stationInfo, setStationInfo] = useState({});
-
+  // set initial layer visibility
   const tripsVisible = useSelector((state) => state.tripsVisible.tripsVisible);
   const stationsVisible = useSelector(
     (state) => state.stationsVisible.stationsVisible
   );
+
+  // set initial widths / lengths / opacity
   const tripLength = useSelector((state) =>
     Number(state.tripsLengthSlider.tripsLengthSlider.value)
   );
@@ -47,19 +49,15 @@ function Map(props) {
     Number(state.stationsWidthSlider.stationsWidthSlider.value)
   );
 
+  // set time and animation setup
   const [time, setTime] = useState(0);
-  const [viewState, setViewState] = useState(INITIAL_VIEW_STATE);
-
-  // const [isRunning, setIsRunning] = useState(true);
-  const dispatch = useDispatch();
-  const isRunning = useSelector((state) => state.isRunning.isRunning);
-  console.log(isRunning);
   const [interval, setCurrentInterval] = useState(null);
+  const isRunning = useSelector((state) => state.isRunning.isRunning);
 
-  console.log(isRunning);
   const animate = () => {
     setTime((t) => (t + step) % loopLength);
   };
+
   //every 20 ms update time according to step
   useEffect(() => {
     if (!isRunning) {
@@ -71,6 +69,10 @@ function Map(props) {
 
     return () => clearInterval(currentInterval);
   }, [isRunning]);
+
+  // station tooltip / view state
+  const [stationInfo, setStationInfo] = useState({});
+  const [viewState, setViewState] = useState(INITIAL_VIEW_STATE);
 
   const layers = [
     new ScatterplotLayer({
@@ -110,16 +112,6 @@ function Map(props) {
       controller={true}
       onViewStateChange={(e) => setViewState(e.viewState)}
     >
-      <div
-        style={{ backgroundColor: "red" }}
-        onClick={() =>
-          dispatch(
-            startStopAnimation(dispatch(startStopAnimation("isRunning")))
-          )
-        }
-      >
-        STOP
-      </div>
       <StaticMap
         reuseMaps
         mapStyle={MAP_STYLE}
