@@ -7,6 +7,7 @@ function SliderBox(props) {
   const id = props.id;
 
   const slider = useSelector((state) => state[id][id]);
+  console.log(slider);
   const dispatch = useDispatch();
 
   return (

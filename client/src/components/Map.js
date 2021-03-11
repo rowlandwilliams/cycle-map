@@ -5,9 +5,10 @@ import { TripsLayer } from "@deck.gl/geo-layers";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { startStopAnimation } from "../actions/index";
+import { startStopAnimation, increment } from "../actions/index";
 
 import "./styles.css";
+import { timeHours } from "d3";
 
 const MAP_STYLE = process.env.REACT_APP_MAPBOX_STYLE;
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
@@ -50,12 +51,16 @@ function Map(props) {
   );
 
   // set time and animation setup
-  const [time, setTime] = useState(0);
+  // const [time, setTime] = useState(0);
+  const time = useSelector((state) => state.currentTime.time);
   const [interval, setCurrentInterval] = useState(null);
   const isRunning = useSelector((state) => state.isRunning.isRunning);
+  console.log(time, isRunning);
+
+  const dispatch = useDispatch();
 
   const animate = () => {
-    setTime((t) => (t + step) % loopLength);
+    dispatch(increment(time, step, loopLength));
   };
 
   //every 20 ms update time according to step
@@ -68,7 +73,7 @@ function Map(props) {
     setCurrentInterval(interval);
 
     return () => clearInterval(currentInterval);
-  }, [isRunning]);
+  }, [isRunning, time]);
 
   // station tooltip / view state
   const [stationInfo, setStationInfo] = useState({});

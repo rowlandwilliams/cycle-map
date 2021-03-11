@@ -7,3 +7,16 @@ export const changeSlider = (e, sliderId) => ({
   id: sliderId,
   value: e.target.value,
 });
+
+export const increment = (time, step, loopLength) => ({
+  type: "INCREMENT",
+  time: time,
+  step: step,
+  loopLength: loopLength,
+});
+
+export const setTest = (time, e) => ({
+  type: "TEST",
+  time: time,
+  value: e.target.value,
+});

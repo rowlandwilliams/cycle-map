@@ -3,10 +3,13 @@ import "./styles.css";
 
 import { useSelector, useDispatch } from "react-redux";
 
-import { startStopAnimation } from "../../actions/index";
+import { startStopAnimation, setTest } from "../../actions/index";
 
 function TimeSlider() {
   const dispatch = useDispatch();
+  const time = useSelector((state) => state.currentTime.time);
+
+  // const slider = useSelector()
   return (
     <div className="sl">
       <div
@@ -18,11 +21,25 @@ function TimeSlider() {
       >
         stop
       </div>
-      <SliderBox
-        title="Length"
-        valueBgColor="linear-gradient(#213e9a, #3f31a7, #df412c, #f9e232)"
-        id="tripsLengthSlider"
-      />
+      <div className="sc-db-slider">
+        <div className="sc-db-slider sc-db-slider__row2">
+          <input
+            style={{ width: "90%" }}
+            type="range"
+            min="0" //{slider.min}
+            max="1800"
+            step="1"
+            value={time}
+            // onChange={(e) => dispatch(setTest(time, e))}
+          />
+          <div
+            className="sc-db-slider sc-db-slider__row2 sc-db-slider__row2--value"
+            // style={{ backgroundImage: props.valueBgColor }}
+          >
+            {time}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
