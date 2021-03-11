@@ -1,9 +1,5 @@
 function SelectorDashboardTitle() {
-  return (
-    <div className="sc-db-title">
-      <div className="sc-db-title-row1">cycle.map</div>
-    </div>
-  );
+  return <div className="sc-db-title">cycle.map</div>;
 }
 
 export default SelectorDashboardTitle;
