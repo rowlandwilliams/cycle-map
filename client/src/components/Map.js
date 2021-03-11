@@ -20,7 +20,6 @@ const INITIAL_VIEW_STATE = {
 
 const { setColourByDistance } = require("./utils/setColourByDistance");
 const tripColours = require("./utils/tripColours.json")[0].rgb;
-console.log(tripColours);
 
 function Map(props) {
   const step = 1;

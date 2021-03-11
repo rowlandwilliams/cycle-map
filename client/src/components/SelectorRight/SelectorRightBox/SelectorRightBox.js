@@ -2,7 +2,9 @@ import { useState } from "react";
 import "./styles.css";
 
 function SelectorRightBox(props) {
-  const [isOpen, setIsOpen] = useState(props.isOpen);
+  const [isOpen, setIsOpen] = useState(
+    window.innerWidth < 600 ? false : props.isOpen
+  );
 
   return (
     <div className="sc-rb-wrapper">

@@ -2,7 +2,8 @@ import { Fragment } from "react";
 import TripSvg from "./svg/TripSvg";
 
 const tripColours = require("../../../utils/tripColours.json")[0].hex;
-const labels = ["<0.5", ">1", ">2", ">3", ">4", ">5", ">10", ">20"];
+console.log(tripColours);
+const labels = ["<0.5", "<1", ">1", ">2", ">3", ">4", ">5", ">10", ">20"];
 
 function TripLegend() {
   return (
