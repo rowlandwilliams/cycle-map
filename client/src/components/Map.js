@@ -48,6 +48,9 @@ function Map(props) {
   const stationWidth = useSelector((state) =>
     Number(state.stationsWidthSlider.stationsWidthSlider.value)
   );
+  const stationHeight = useSelector((state) =>
+    Number(state.stationsHeightSlider.stationsHeightSlider.value)
+  );
 
   // set time and animation setup
   const time = useSelector((state) => Number(state.currentTime.time));
@@ -77,19 +80,6 @@ function Map(props) {
   const [viewState, setViewState] = useState(INITIAL_VIEW_STATE);
 
   const layers = [
-    // new ScatterplotLayer({
-    //   id: "stations",
-    //   data: props.stationsData,
-    //   getPosition: (d) => [d.longitude, d.latitude],
-    //   getFillColor: [50, 168, 82],
-    //   pickable: true,
-    //   opacity: 0.4,
-    //   stroked: true,
-    //   filled: true,
-    //   getRadius: stationWidth,
-    //   visible: stationsVisible,
-    //   onHover: (info) => setStationInfo(info),
-    // }),
     new ColumnLayer({
       id: "column-layer",
       data: props.stationsData,
@@ -97,7 +87,7 @@ function Map(props) {
       radius: stationWidth,
       extruded: true,
       pickable: true,
-      elevationScale: 20,
+      elevationScale: stationHeight,
       getPosition: (d) => [d.longitude, d.latitude],
       getFillColor: (d) => setColourByTrips(d.ntrips, colours.stations.rgb),
       getElevation: (d) => d.ntrips,

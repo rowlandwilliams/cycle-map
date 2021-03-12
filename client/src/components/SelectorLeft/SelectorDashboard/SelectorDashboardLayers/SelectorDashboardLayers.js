@@ -45,6 +45,11 @@ function SelectorDashboardLayers() {
             valueBgColor="rgb(175, 55, 196)"
             id="stationsWidthSlider"
           />
+          <SliderBox
+            title="Height"
+            valueBgColor="rgb(175, 55, 196)"
+            id="stationsHeightSlider"
+          />
         </LayerDropdown>
       </div>
     </Fragment>

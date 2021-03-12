@@ -14,6 +14,7 @@ const allReducers = combineReducers({
   tripsWidthSlider: changeSliderReducer,
   tripsOpacitySlider: changeSliderReducer,
   stationsWidthSlider: changeSliderReducer,
+  stationsHeightSlider: changeSliderReducer,
 });
 
 export default allReducers;
