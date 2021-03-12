@@ -1,0 +1,30 @@
+.st {
+  background-color: var(--mid-grey);
+  color: var(--light-grey);
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  padding: 15px 10px;
+  font-size: 12px;
+}
+
+.st-item {
+  padding: 2px;
+}
+
+.st-item--title {
+  display: flex;
+  align-items: start;
+}
+
+.st-item--station {
+  font-size: 14px;
+  white-space: nowrap;
+  border-bottom: 0.5px solid var(--tt-grey);
+  padding-bottom: 5px;
+}
+
+.st-item--stats {
+  display: flex;
+  justify-content: space-between;
+}

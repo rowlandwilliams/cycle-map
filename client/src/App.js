@@ -1,7 +1,7 @@
 import { getData } from "./requests/getData";
 import { useState, useEffect } from "react";
 
-import Map from "./components/Map";
+import Map from "./components/Map/Map";
 import SelectorLeft from "./components/SelectorLeft/SelectorLeft.";
 import SelectorRight from "./components/SelectorRight/SelectorRight";
 import TimeSlider from "./components/TimeSlider/TimeSlider";

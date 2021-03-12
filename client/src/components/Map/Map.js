@@ -1,14 +1,13 @@
 import { StaticMap } from "react-map-gl";
 import DeckGL from "@deck.gl/react";
-import { ScatterplotLayer, ColumnLayer } from "@deck.gl/layers";
+import { ColumnLayer } from "@deck.gl/layers";
 import { TripsLayer } from "@deck.gl/geo-layers";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setColourByDistance } from "./utils/setColourByDistance";
-import { setColourByTrips } from "./utils/setColourByTrips";
-import { increment } from "../actions/index";
-
-import "./styles.css";
+import { setColourByDistance } from "../utils/setColourByDistance";
+import { setColourByTrips } from "../utils/setColourByTrips";
+import { increment } from "../../actions/index";
+import StationTooltip from "./Tooltip/StationTooltip";
 
 const MAP_STYLE = process.env.REACT_APP_MAPBOX_STYLE;
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
@@ -21,7 +20,7 @@ const INITIAL_VIEW_STATE = {
   zoom: 12.622317076585368,
 };
 
-const colours = require("./utils/tripColours.json")[0]; //.trips.rgb;
+const colours = require("../utils/tripColours.json")[0]; //.trips.rgb;
 
 // animation parameters
 const step = 1;
@@ -75,9 +74,25 @@ function Map(props) {
     return () => clearInterval(currentInterval);
   }, [isRunning, time]);
 
+  // const [bearing, setBearing] = useState(INITIAL_VIEW_STATE.bearing);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setBearing(bear);
+  //   }, intervalMS);
+
+  //   return () => clearInterval(interval);
+  // }, []);
+
   // station tooltip / view state
   const [stationInfo, setStationInfo] = useState({});
   const [viewState, setViewState] = useState(INITIAL_VIEW_STATE);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setViewState({...state, [action.payload]: !state[action.payload] });
+  //   }, intervalMS);
+
+  //   return () => clearInterval(interval);
+  // }, []);
 
   const layers = [
     new ColumnLayer({
@@ -124,23 +139,11 @@ function Map(props) {
         mapboxApiAccessToken={MAPBOX_TOKEN}
       />
       {stationInfo.object && (
-        <div
-          className="st-ttip"
-          style={{
-            position: "absolute",
-            zIndex: 1,
-            pointerEvents: "none",
-            left: stationInfo.x,
-            top: stationInfo.y,
-            padding: "10px",
-          }}
-        >
-          <div>{stationInfo.object.station_name}</div>
-          <div>
-            {stationInfo.object.ntrips}{" "}
-            {stationInfo.object.ntrips === 1 ? "trip" : "trips"}
-          </div>
-        </div>
+        <StationTooltip
+          x={stationInfo.x}
+          y={stationInfo.y}
+          info={stationInfo.object}
+        />
       )}
     </DeckGL>
   );
