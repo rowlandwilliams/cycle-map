@@ -4,8 +4,9 @@ import { ScatterplotLayer, ColumnLayer } from "@deck.gl/layers";
 import { TripsLayer } from "@deck.gl/geo-layers";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-
-import { startStopAnimation, increment } from "../actions/index";
+import { setColourByDistance } from "./utils/setColourByDistance";
+import { setColourByTrips } from "./utils/setColourByTrips";
+import { increment } from "../actions/index";
 
 import "./styles.css";
 
@@ -20,8 +21,7 @@ const INITIAL_VIEW_STATE = {
   zoom: 12.911048729018757,
 };
 
-const { setColourByDistance } = require("./utils/setColourByDistance");
-const tripColours = require("./utils/tripColours.json")[0].rgb;
+const colours = require("./utils/tripColours.json")[0]; //.trips.rgb;
 
 // animation parameters
 const step = 1;
@@ -99,7 +99,7 @@ function Map(props) {
       pickable: true,
       elevationScale: 20,
       getPosition: (d) => [d.longitude, d.latitude],
-      getFillColor: [50, 168, 82],
+      getFillColor: (d) => setColourByTrips(d.ntrips, colours.stations.rgb),
       getElevation: (d) => d.ntrips,
       visible: stationsVisible,
       onHover: (info) => setStationInfo(info),
@@ -109,7 +109,7 @@ function Map(props) {
       data: props.tripsData,
       getPath: (d) => d.route,
       getTimestamps: (d) => d.timestamps,
-      getColor: (d) => setColourByDistance(d.distance, tripColours),
+      getColor: (d) => setColourByDistance(d.distance, colours.trips.rgb),
       opacity: tripOpacity,
       widthMinPixels: tripWidth,
       rounded: true,

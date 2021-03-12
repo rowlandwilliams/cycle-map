@@ -1,8 +1,9 @@
+import { Fragment } from "react";
 import "./styles.css";
 
 function StationSvg(props) {
   return (
-    <div className="lg-row">
+    <Fragment>
       <svg className={props.svgClass}>
         <circle
           className="wm-svg-circle"
@@ -13,9 +14,17 @@ function StationSvg(props) {
           r={props.r}
           opacity={props.opacity}
         />
+        <text
+          x={props.label !== ">8" ? "37.5%" : "25%"}
+          y="62.5%"
+          font-weight="100"
+          font-size="8px"
+          stroke="#ffffff"
+        >
+          {props.label}
+        </text>
       </svg>
-      <span>{props.label}</span>
-    </div>
+    </Fragment>
   );
 }
 
