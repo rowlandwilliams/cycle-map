@@ -1,5 +1,6 @@
 import "./styles.css";
-
+import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSelector, useDispatch } from "react-redux";
 
 import { startStopAnimation, changeTimeSlider } from "../../actions/index";
@@ -7,10 +8,17 @@ import { startStopAnimation, changeTimeSlider } from "../../actions/index";
 function TimeSlider() {
   const dispatch = useDispatch();
   const time = useSelector((state) => state.currentTime.time);
+  const isRunning = useSelector((state) => state.isRunning.isRunning);
+  console.log(isRunning);
 
   return (
     <div className="sl">
-      <div onClick={() => dispatch(startStopAnimation("isRunning"))}>stop</div>
+      <div onClick={() => dispatch(startStopAnimation("isRunning"))}>
+        <FontAwesomeIcon
+          icon={isRunning ? faPause : faPlay}
+          className="sc-db-layers-dropdown sc-db-layers-dropdown__top-symbols--fa"
+        />
+      </div>
       <div className="sc-db-slider">
         <div className="sc-db-slider sc-db-slider__row2">
           <input
