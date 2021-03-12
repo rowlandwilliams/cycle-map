@@ -1,6 +1,6 @@
 import { StaticMap } from "react-map-gl";
 import DeckGL from "@deck.gl/react";
-import { ScatterplotLayer } from "@deck.gl/layers";
+import { ScatterplotLayer, ColumnLayer } from "@deck.gl/layers";
 import { TripsLayer } from "@deck.gl/geo-layers";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -8,7 +8,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { startStopAnimation, increment } from "../actions/index";
 
 import "./styles.css";
-import { timeHours } from "d3";
 
 const MAP_STYLE = process.env.REACT_APP_MAPBOX_STYLE;
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
@@ -91,7 +90,19 @@ function Map(props) {
       visible: stationsVisible,
       onHover: (info) => setStationInfo(info),
     }),
-
+    new ColumnLayer({
+      id: "column-layer",
+      data: props.stationsData,
+      diskResolution: 12,
+      radius: 20,
+      extruded: true,
+      pickable: true,
+      elevationScale: 20,
+      getPosition: (d) => [d.longitude, d.latitude],
+      getFillColor: [50, 168, 82],
+      getElevation: (d) => d.ntrips,
+      onHover: (info) => setStationInfo(info),
+    }),
     new TripsLayer({
       id: "trips",
       data: props.tripsData,
@@ -133,7 +144,8 @@ function Map(props) {
             padding: "10px",
           }}
         >
-          {stationInfo.object.station_name}
+          <div>{stationInfo.object.station_name}</div>
+          <div>{stationInfo.object.ntrips} trips</div>
         </div>
       )}
     </DeckGL>
