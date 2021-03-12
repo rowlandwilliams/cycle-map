@@ -35,7 +35,7 @@ function SelectorDashboardLayers() {
         </LayerDropdown>
         <LayerDropdown
           layerName="Stations"
-          isOpen={!isOpen}
+          isOpen={isOpen}
           leftColour="rgb(175, 55, 196)"
           id="stationsVisible"
           bgColor="#32a852"
