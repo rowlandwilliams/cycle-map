@@ -76,8 +76,8 @@ fs.createReadStream("./data/raw/journey-data03122020-05012021.csv")
   })
   .on("end", () => {
     console.log(routes04, routes04.length);
-    fs.writeFileSync(
-      "./data/raw/json/journey-data-matched.json",
-      JSON.stringify(routes04)
-    );
+    // fs.writeFileSync(
+    //   "./data/raw/json/journey-data-matched.json",
+    //   JSON.stringify(routes04)
+    // );
   });

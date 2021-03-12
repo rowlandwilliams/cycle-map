@@ -3,7 +3,6 @@ const polyline = require("polyline");
 const fs = require("fs");
 require("dotenv").config();
 const d3 = require("d3");
-const { request } = require("http");
 
 var routes = require("../raw/json/journey-data-matched.json"); //.slice(0, 5);
 
@@ -55,10 +54,11 @@ function series(items, fn) {
     .then(() => result);
 }
 
-// series(urls, fetchRoute);
+series(urls, fetchRoute);
 
 // after running the above series function, read in created dataset and add timestamps
-const bikes = require("../../client/src/components/routes-data-test.json");
+const bikes = require("../raw/json/routes-data-from-api.json");
+console.log(bikes.length);
 
 // add timestamps
 bikes.forEach((route) => {
@@ -86,13 +86,14 @@ const timeScale = d3
   .domain([Math.min(...timestamps), Math.max(...timestamps)])
   .range([0, 1800]); // 30 minutes -> 1800 seconds
 
+console.log(Math.min(...timestamps), Math.max(...timestamps));
 // map over routes array and generate scaled time_stamps key
 bikes.forEach(
   (route) => (route.timestamps = route.timestamps.map((x) => timeScale(x)))
 );
 
-fs.writeFileSync(
-  "./client/src/components/routes-data-final.json",
-  JSON.stringify(bikes)
-);
+// fs.writeFileSync(
+//   "./client/src/components/routes-data-final.json",
+//   JSON.stringify(bikes)
+// );
 // console.log(bikes);

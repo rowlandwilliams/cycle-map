@@ -5,7 +5,7 @@
   bottom: 30px;
   right: 20px;
   width: calc(100% - 40px);
-  height: 15%;
+  height: 8%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,9 +15,23 @@
 .sl-icon {
 }
 
-.sl-icon__icon {
-  padding: 8px;
-  font-size: 32px;
+.sl-icon__icon,
+.sl-timer {
   background-color: var(--mid-grey);
   border-radius: 3px;
+  padding: 8px;
+}
+
+.sl-icon__icon {
+  font-size: 32px;
+}
+
+.sl-timer {
+  min-width: 80px;
+}
+
+@media (max-width: 600px) {
+  .sl {
+    padding: 0 20px;
+  }
 }
