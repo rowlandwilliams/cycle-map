@@ -46,7 +46,10 @@ function TimeSlider() {
           />
         </div>
       </div>
-      <div className="sl-timer">{timeStampToTime(time)}</div>
+      <div className="sl-timer">
+        <div>{timeStampToTime(time)}</div>
+        <div>AM</div>
+      </div>
     </div>
   );
 }

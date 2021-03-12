@@ -38,16 +38,16 @@ function SelectorDashboardLayers() {
           isOpen={isOpen}
           leftColour="rgb(175, 55, 196)"
           id="stationsVisible"
-          bgColor="#32a852"
+          bgImage="linear-gradient(#773db8, #5e60ce, #4dbfe3, #72efdd)"
         >
           <SliderBox
             title="Radius"
-            valueBgColor="rgb(175, 55, 196)"
+            valueBgColor="linear-gradient(#773db8, #5e60ce, #4dbfe3, #72efdd)"
             id="stationsWidthSlider"
           />
           <SliderBox
             title="Height"
-            valueBgColor="rgb(175, 55, 196)"
+            valueBgColor="linear-gradient(#773db8, #5e60ce, #4dbfe3, #72efdd)"
             id="stationsHeightSlider"
           />
         </LayerDropdown>
