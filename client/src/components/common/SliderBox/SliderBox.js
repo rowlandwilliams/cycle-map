@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { changeSlider } from "../../../actions/index";
 
@@ -11,26 +12,29 @@ function SliderBox(props) {
   const dispatch = useDispatch();
 
   return (
-    <div className="sc-db-slider">
-      <div>{props.title}</div>
-      <div className="sc-db-slider sc-db-slider__row2">
-        <input
-          style={{ width: "50%" }}
-          type="range"
-          min={slider.min}
-          max={slider.max}
-          step={slider.step}
-          value={slider.value}
-          onChange={(e) => dispatch(changeSlider(e, id))}
-        />
-        <div
-          className="sc-db-slider sc-db-slider__row2 sc-db-slider__row2--value"
-          style={{ backgroundImage: props.valueBgColor }}
-        >
-          {slider.value}
+    <Fragment>
+      <div className="sc-db-slider">
+        <div>{props.title}</div>
+        <div className="sc-db-slider sc-db-slider__row2">
+          <input
+            style={{ width: "50%" }}
+            type="range"
+            min={slider.min}
+            max={slider.max}
+            step={slider.step}
+            value={slider.value}
+            onChange={(e) => dispatch(changeSlider(e, id))}
+          />
+          <div
+            className="sc-db-slider sc-db-slider__row2 sc-db-slider__row2--value"
+            style={{ backgroundImage: props.valueBgColor }}
+          >
+            {slider.value}
+          </div>
         </div>
+        <div className="sc-db-popUp">{props.popUp}</div>
       </div>
-    </div>
+    </Fragment>
   );
 }
 

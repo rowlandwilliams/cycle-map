@@ -12,10 +12,25 @@
 .sc-db-slider__row2--value {
   border-radius: 3px;
   text-align: center;
-  /* flex: 0 15%; */
   width: 40px;
   margin-left: 5px;
   opacity: 0.8;
+}
+
+.sc-db-slider:hover .sc-db-popUp {
+  display: block;
+}
+
+.sc-db-popUp {
+  display: none;
+  position: absolute;
+  transform: translate(240px, -50px);
+  white-space: normal;
+  max-width: 150px;
+  padding: 5px;
+  background-color: var(--mid-grey);
+  border-radius: 3px;
+  font-size: 10px;
 }
 
 input[type="range"] {
