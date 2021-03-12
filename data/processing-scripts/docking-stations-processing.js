@@ -2,6 +2,7 @@ const fs = require("fs");
 const csv = require("csv-parser");
 
 const stations = [];
+const trips = require("../raw/json/journey-data-matched.json");
 
 fs.createReadStream("./data/raw/docking-stations.csv")
   .pipe(csv())
@@ -16,11 +17,17 @@ fs.createReadStream("./data/raw/docking-stations.csv")
     delete row.Northing;
     delete row.StationName;
 
+    // filter processed trip files to get number of trips
+    row.ntrips = trips.filter(
+      (x) =>
+        x.endstation_id == row.station_id || x.startstation_id == row.station_id
+    ).length;
+
     stations.push(row);
   })
-  .on("end", () =>
+  .on("end", () => {
     fs.writeFileSync(
       "./data/raw/json/docking-stations-processed.json",
       JSON.stringify(stations)
-    )
-  );
+    );
+  });
