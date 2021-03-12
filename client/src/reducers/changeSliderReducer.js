@@ -6,7 +6,7 @@ const initialState = {
     step: 1,
   },
   tripsWidthSlider: {
-    value: 10,
+    value: 5,
     min: 1,
     max: 10,
     step: 1,
@@ -24,7 +24,7 @@ const initialState = {
     step: 1,
   },
   stationsHeightSlider: {
-    value: 20,
+    value: 60,
     min: 20,
     max: 200,
     step: 1,

@@ -14,11 +14,11 @@ const MAP_STYLE = process.env.REACT_APP_MAPBOX_STYLE;
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
 
 const INITIAL_VIEW_STATE = {
-  bearing: -18.28425302993724,
-  latitude: 51.502870571328636,
-  longitude: -0.11321690390138871,
-  pitch: 56.89273879990128,
-  zoom: 12.911048729018757,
+  bearing: -94.90178423617962,
+  latitude: 51.50297702487694,
+  longitude: -0.11126511008157527,
+  pitch: 59.59429095837497,
+  zoom: 12.622317076585368,
 };
 
 const colours = require("./utils/tripColours.json")[0]; //.trips.rgb;
