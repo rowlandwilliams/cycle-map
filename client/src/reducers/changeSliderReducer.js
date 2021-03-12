@@ -1,10 +1,4 @@
 const initialState = {
-  timeSlider: {
-    value: 0,
-    min: 0,
-    max: 1800,
-    step: 1,
-  },
   tripsLengthSlider: {
     value: 180,
     min: 10,

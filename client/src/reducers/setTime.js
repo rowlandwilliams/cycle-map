@@ -9,7 +9,8 @@ const setTime = (state = initialState, action) => {
         ...state,
         time: (action.time + action.step) % action.loopLength,
       };
-    case "TEST": {
+    case "SLIDE": {
+      // called when time slider is dragged
       return {
         ...state,
         time: action.value,

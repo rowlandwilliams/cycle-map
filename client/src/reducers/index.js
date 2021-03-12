@@ -10,7 +10,6 @@ const allReducers = combineReducers({
   currentTime: setTime,
   tripsVisible: showLayerReducer,
   stationsVisible: showLayerReducer,
-  timeSlider: changeSliderReducer,
   tripsLengthSlider: changeSliderReducer,
   tripsWidthSlider: changeSliderReducer,
   tripsOpacitySlider: changeSliderReducer,

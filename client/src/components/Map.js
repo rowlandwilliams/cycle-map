@@ -51,11 +51,9 @@ function Map(props) {
   );
 
   // set time and animation setup
-  // const [time, setTime] = useState(0);
-  const time = useSelector((state) => state.currentTime.time);
+  const time = useSelector((state) => Number(state.currentTime.time));
   const [interval, setCurrentInterval] = useState(null);
   const isRunning = useSelector((state) => state.isRunning.isRunning);
-  console.log(time, isRunning);
 
   const dispatch = useDispatch();
 
