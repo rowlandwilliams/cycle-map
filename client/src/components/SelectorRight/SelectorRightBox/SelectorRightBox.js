@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./styles.css";
+import { faCompressArrowsAlt } from "@fortawesome/free-solid-svg-icons";
 
 function SelectorRightBox(props) {
   const [isOpen, setIsOpen] = useState(
@@ -11,7 +13,7 @@ function SelectorRightBox(props) {
       <div className="sc-rb">
         <div className="sc-rb sc-rb__icon" onClick={() => setIsOpen(!isOpen)}>
           <div className="sc-rb sc-rb__icon sc-rb__icon--icon">
-            {props.icon}
+            <FontAwesomeIcon icon={isOpen ? faCompressArrowsAlt : props.icon} />
             <span className="sc-rb sc-rb__icon sc-rb__icon--tooltip">
               {props.tooltip}
             </span>
