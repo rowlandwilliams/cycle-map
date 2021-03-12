@@ -77,30 +77,31 @@ function Map(props) {
   const [viewState, setViewState] = useState(INITIAL_VIEW_STATE);
 
   const layers = [
-    new ScatterplotLayer({
-      id: "stations",
-      data: props.stationsData,
-      getPosition: (d) => [d.longitude, d.latitude],
-      getFillColor: [50, 168, 82],
-      pickable: true,
-      opacity: 0.4,
-      stroked: true,
-      filled: true,
-      getRadius: stationWidth,
-      visible: stationsVisible,
-      onHover: (info) => setStationInfo(info),
-    }),
+    // new ScatterplotLayer({
+    //   id: "stations",
+    //   data: props.stationsData,
+    //   getPosition: (d) => [d.longitude, d.latitude],
+    //   getFillColor: [50, 168, 82],
+    //   pickable: true,
+    //   opacity: 0.4,
+    //   stroked: true,
+    //   filled: true,
+    //   getRadius: stationWidth,
+    //   visible: stationsVisible,
+    //   onHover: (info) => setStationInfo(info),
+    // }),
     new ColumnLayer({
       id: "column-layer",
       data: props.stationsData,
       diskResolution: 12,
-      radius: 20,
+      radius: stationWidth,
       extruded: true,
       pickable: true,
       elevationScale: 20,
       getPosition: (d) => [d.longitude, d.latitude],
       getFillColor: [50, 168, 82],
       getElevation: (d) => d.ntrips,
+      visible: stationsVisible,
       onHover: (info) => setStationInfo(info),
     }),
     new TripsLayer({
@@ -145,7 +146,10 @@ function Map(props) {
           }}
         >
           <div>{stationInfo.object.station_name}</div>
-          <div>{stationInfo.object.ntrips} trips</div>
+          <div>
+            {stationInfo.object.ntrips}{" "}
+            {stationInfo.object.ntrips === 1 ? "trip" : "trips"}
+          </div>
         </div>
       )}
     </DeckGL>

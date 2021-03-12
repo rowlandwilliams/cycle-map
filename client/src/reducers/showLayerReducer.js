@@ -1,6 +1,6 @@
 const initialState = {
   tripsVisible: true,
-  stationsVisible: false,
+  stationsVisible: true,
 };
 
 const showLayerReducer = (state = initialState, action) => {
