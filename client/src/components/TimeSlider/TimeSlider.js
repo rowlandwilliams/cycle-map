@@ -13,16 +13,19 @@ function TimeSlider() {
 
   return (
     <div className="sl">
-      <div onClick={() => dispatch(startStopAnimation("isRunning"))}>
+      <div
+        className="sl-icon"
+        onClick={() => dispatch(startStopAnimation("isRunning"))}
+      >
         <FontAwesomeIcon
           icon={isRunning ? faPause : faPlay}
-          className="sc-db-layers-dropdown sc-db-layers-dropdown__top-symbols--fa"
+          className="sl-icon sl-icon__icon"
         />
       </div>
       <div className="sc-db-slider">
         <div className="sc-db-slider sc-db-slider__row2">
           <input
-            style={{ width: "90%" }}
+            // style={{ width: "90%" }}
             type="range"
             min="0"
             max="1800" // seconds, 30 min data period

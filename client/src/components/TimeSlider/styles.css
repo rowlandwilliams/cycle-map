@@ -6,4 +6,18 @@
   right: 20px;
   width: calc(100% - 40px);
   height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 50px;
+}
+
+.sl-icon {
+}
+
+.sl-icon__icon {
+  padding: 8px;
+  font-size: 32px;
+  background-color: var(--mid-grey);
+  border-radius: 3px;
 }
