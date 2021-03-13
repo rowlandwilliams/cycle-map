@@ -9,20 +9,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function TripRow(props) {
   return (
     <Fragment>
-      {props.info.type === "outbound" ? (
-        <div className="st-item st-item--statsRow">
+      <div className="st-item st-item__statsRow">
+        <div className="st-item st-item__statsRow st-item__statsRow--time">
           {props.info.time}
-          <FontAwesomeIcon icon={faArrowAltCircleRight} />
+          <FontAwesomeIcon
+            icon={
+              props.info.type === "outbound"
+                ? faArrowAltCircleRight
+                : faArrowAltCircleLeft
+            }
+          />
+        </div>
+        <div className="st-item st-item__statsRow st-item__statsRow--st">
           {props.info.station}
         </div>
-      ) : (
-        <div className="st-item st-item--statsRow">
-          {props.info.time}
-
-          <FontAwesomeIcon icon={faArrowAltCircleLeft} />
-          {props.info.station}
-        </div>
-      )}
+      </div>
     </Fragment>
   );
 }

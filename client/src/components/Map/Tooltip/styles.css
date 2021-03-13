@@ -1,5 +1,5 @@
 .st {
-  background-color: var(--mid-grey);
+  background-color: var(--dark-grey);
   color: var(--light-grey);
   position: absolute;
   z-index: 1;
@@ -27,9 +27,24 @@
 .st-item--stats {
   display: flex;
   justify-content: space-between;
+  border-bottom: 0.5px solid var(--tt-grey);
+  margin-bottom: 5px;
 }
 
-.st-item--statsRow {
+.st-item__statsRow {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 2px 1px;
+}
+
+.st-item__statsRow--time {
+  background-color: var(--mid-grey);
+  min-width: 60px;
+  padding: 2px;
+  border-radius: 2px;
+}
+
+.st-item__statsRow--st {
+  padding-left: 5px;
 }
