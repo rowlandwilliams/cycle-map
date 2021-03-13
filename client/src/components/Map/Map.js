@@ -74,25 +74,21 @@ function Map(props) {
     return () => clearInterval(currentInterval);
   }, [isRunning, time]);
 
-  // const [bearing, setBearing] = useState(INITIAL_VIEW_STATE.bearing);
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setBearing(bear);
-  //   }, intervalMS);
-
-  //   return () => clearInterval(interval);
-  // }, []);
-
   // station tooltip / view state
   const [stationInfo, setStationInfo] = useState({});
   const [viewState, setViewState] = useState(INITIAL_VIEW_STATE);
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setViewState({...state, [action.payload]: !state[action.payload] });
-  //   }, intervalMS);
 
-  //   return () => clearInterval(interval);
-  // }, []);
+  const [stationIsHovered, setStationHovered] = useState(false);
+
+  const stationFilter = (info) => {
+    if (info.picked) {
+      setStationHovered(!stationIsHovered);
+      setStationInfo(info);
+    } else {
+      setStationHovered(false);
+      setStationInfo({});
+    }
+  };
 
   const layers = [
     new ColumnLayer({
@@ -107,7 +103,7 @@ function Map(props) {
       getFillColor: (d) => setColourByTrips(d.ntrips, colours.stations.rgb),
       getElevation: (d) => d.ntrips,
       visible: stationsVisible,
-      onHover: (info) => setStationInfo(info),
+      onHover: (info) => stationFilter(info),
     }),
     new TripsLayer({
       id: "trips",
@@ -140,6 +136,7 @@ function Map(props) {
       />
       {stationInfo.object && (
         <StationTooltip
+          isHovered={stationIsHovered}
           x={stationInfo.x}
           y={stationInfo.y}
           info={stationInfo.object}

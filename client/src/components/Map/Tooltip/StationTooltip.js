@@ -3,20 +3,32 @@ import TripRow from "./TripRow";
 import { faChargingStation } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TripGraph from "./TripGraph";
+import { useRef, useEffect, useState } from "react";
 
 const oneDp = (num) => {
   return Math.round(num * 10) / 10;
 };
 
 function StationTooltip(props) {
-  console.log(props.info);
+  const [width, setWidth] = useState(null);
+  // calculate width
+  const ref = useRef(null);
+  useEffect(() => {
+    if (ref.current) {
+      setWidth(ref.current.offsetWidth);
+    }
+  }, [ref.current]);
+  console.log(width);
+
   return (
     <div
+      id="test"
       className="st"
       style={{
         left: props.x,
         top: props.y,
       }}
+      ref={ref}
     >
       <div className="st-item st-item--title">
         <FontAwesomeIcon icon={faChargingStation} />
@@ -41,7 +53,7 @@ function StationTooltip(props) {
       {props.info.trips.map((x) => (
         <TripRow info={x} />
       ))}
-      <TripGraph data={props.info} />
+      <TripGraph data={props.info} width={width} />
     </div>
   );
 }
