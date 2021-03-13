@@ -9,7 +9,7 @@
 }
 
 .st-item {
-  padding: 2px;
+  padding: 3px;
 }
 
 .st-item--title {
@@ -25,6 +25,11 @@
 }
 
 .st-item--stats {
+  display: flex;
+  justify-content: space-between;
+}
+
+.st-item--statsRow {
   display: flex;
   justify-content: space-between;
 }

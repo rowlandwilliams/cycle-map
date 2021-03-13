@@ -1,4 +1,5 @@
 import "./styles.css";
+import TripRow from "./TripRow";
 import { faChargingStation } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -36,6 +37,9 @@ function StationTooltip(props) {
           {props.info.trips.map((x) => x.duration).reduce((a, b) => a + b, 0)} s
         </span>
       </div>
+      {props.info.trips.map((x) => (
+        <TripRow info={x} />
+      ))}
     </div>
   );
 }
