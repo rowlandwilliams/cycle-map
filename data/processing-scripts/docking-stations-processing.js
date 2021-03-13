@@ -11,6 +11,20 @@ trips.forEach(
     )[0].distance)
 );
 
+function toTimestamp(string) {
+  // year, month, day, hour, minute, second;
+  var year = string.substring(6, 10);
+  var month = string.substring(3, 5);
+  var day = string.substring(0, 2);
+  var hour = string.substring(11, 13);
+  var minute = string.substring(14, 16);
+
+  var datum = new Date(
+    Date.UTC(string.substring(6, 10), month - 1, day, hour, minute)
+  );
+  return datum.getTime() / 1000;
+}
+
 fs.createReadStream("./data/raw/docking-stations.csv")
   .pipe(csv())
   .on("data", (row) => {
@@ -44,8 +58,14 @@ fs.createReadStream("./data/raw/docking-stations.csv")
         duration: x.duration,
         type: x.startstation_id === row.station_id ? "outbound" : "inbound",
         distance: x.distance,
-      }));
+        time: x.startstation_id === row.station_id ? x.end_date : x.start_date,
+      }))
+      .sort((a, b) => toTimestamp(a.time) - toTimestamp(b.time));
+    // order by timestamp for tooltip correct order
 
+    // strip down time to hour/minute after ordering by ts
+    row.trips.forEach((trip) => (trip.time = trip.time.substring(11, 16)));
+    console.log(row);
     stations.push(row);
   })
   .on("end", () => {
