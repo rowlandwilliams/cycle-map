@@ -2,6 +2,7 @@ import "./styles.css";
 import TripRow from "./TripRow";
 import { faChargingStation } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import TripGraph from "./TripGraph";
 
 const oneDp = (num) => {
   return Math.round(num * 10) / 10;
@@ -40,6 +41,7 @@ function StationTooltip(props) {
       {props.info.trips.map((x) => (
         <TripRow info={x} />
       ))}
+      <TripGraph data={props.info} />
     </div>
   );
 }

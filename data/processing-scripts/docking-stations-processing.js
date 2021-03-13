@@ -1,5 +1,6 @@
 const fs = require("fs");
 const csv = require("csv-parser");
+const d3 = require("d3");
 
 const stations = [];
 const trips = require("../raw/json/journey-data-matched.json");
@@ -24,6 +25,11 @@ function toTimestamp(string) {
   );
   return datum.getTime() / 1000;
 }
+
+const timeScale = d3
+  .scaleLinear() //scaleLinear from d3-scale
+  .domain([1609747200, 1609752600]) // 04/01/21 08:00:00 ---> 04/01/21 09:30:00
+  .range([0, 1800]); // 30 minutes -> 1800 seconds
 
 fs.createReadStream("./data/raw/docking-stations.csv")
   .pipe(csv())
@@ -59,11 +65,13 @@ fs.createReadStream("./data/raw/docking-stations.csv")
         type: x.startstation_id === row.station_id ? "outbound" : "inbound",
         distance: x.distance,
         time: x.startstation_id === row.station_id ? x.end_date : x.start_date,
+        time: x.startstation_id === row.station_id ? x.end_date : x.start_date,
       }))
       .sort((a, b) => toTimestamp(a.time) - toTimestamp(b.time));
     // order by timestamp for tooltip correct order
 
     // strip down time to hour/minute after ordering by ts
+    row.trips.forEach((trip) => (trip.ts = timeScale(toTimestamp(trip.time))));
     row.trips.forEach((trip) => (trip.time = trip.time.substring(11, 16)));
     console.log(row);
     stations.push(row);
