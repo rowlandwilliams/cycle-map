@@ -10,10 +10,6 @@
 .sc-db-layers-dropdown {
   margin: 2.55px 0px;
   font-size: 14px;
-  opacity: 0.8;
-}
-
-.sc-db-layers-dropdown:hover {
   opacity: 1;
 }
 

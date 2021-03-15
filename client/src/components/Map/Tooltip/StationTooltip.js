@@ -53,9 +53,8 @@ function StationTooltip(props) {
           <TripRow info={x} />
         ))}
       </div>
-
       <div className="st-item st-item--svg">
-        <TripSvg data={props.info} width={width} svgClass="trip-svg" />
+        <TripSvg data={props.info} width={width} svgClass="trips" />
       </div>
       <div className="st-item st-item--axis">
         <span>8:00</span>

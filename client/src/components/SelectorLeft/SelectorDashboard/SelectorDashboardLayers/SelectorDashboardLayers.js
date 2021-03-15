@@ -17,7 +17,6 @@ function SelectorDashboardLayers() {
           sliderId="tripsTrailLength"
           bgImage="linear-gradient(#213e9a, #3f31a7, #df412c, #f9e232)"
         >
-          <div>Adjust layer:</div>
           <SliderBox
             title="Trail-length"
             valueBgColor="linear-gradient(#213e9a, #3f31a7, #df412c, #f9e232)"
@@ -44,7 +43,6 @@ function SelectorDashboardLayers() {
           id="stationsVisible"
           bgImage="linear-gradient(#773db8, #5e60ce, #4dbfe3, #72efdd)"
         >
-          <div>Adjust layer:</div>
           <SliderBox
             title="Radius"
             valueBgColor="linear-gradient(#773db8, #5e60ce, #4dbfe3, #72efdd)"

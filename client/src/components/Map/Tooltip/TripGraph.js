@@ -6,6 +6,10 @@ function TripSvg(props) {
   const time = useSelector((state) => Number(state.currentTime.time));
   return (
     <Fragment>
+      <div
+        className="time-slider"
+        style={{ left: (time / 1800) * 100 + "%" }}
+      ></div>
       <svg className={props.svgClass}>
         {props.data.trips.map((x) => (
           <circle
@@ -16,10 +20,6 @@ function TripSvg(props) {
           />
         ))}
       </svg>
-      <div
-        className="time-slider"
-        style={{ left: (time / 1800) * 100 + "%" }}
-      ></div>
     </Fragment>
   );
 }

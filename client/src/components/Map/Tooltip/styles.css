@@ -53,10 +53,10 @@
   border-top: 0.5px solid var(--tt-grey);
   margin-top: 5px;
   position: relative;
+  padding: 5px 0px;
 }
 
-.trip-svg {
-  width: 100%;
+.trips {
   height: 20px;
 }
 
