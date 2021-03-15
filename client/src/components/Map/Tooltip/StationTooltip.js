@@ -1,4 +1,5 @@
 import "./styles.css";
+import { Fragment } from "react";
 import TripRow from "./TripRow";
 import { faChargingStation } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -60,14 +61,18 @@ function StationTooltip(props) {
           <TripRow info={x} />
         ))}
       </div>
-      <div className="st-item st-item--svg">
-        <TripSvg data={props.info} width={width} svgClass="trips" />
-      </div>
-      <div className="st-item st-item--axis">
-        <span>8:00</span>
-        <span>8:45</span>
-        <span>9:30</span>
-      </div>
+      {props.info.trips.length > 0 ? (
+        <Fragment>
+          <div className="st-item st-item--svg">
+            <TripSvg data={props.info} width={width} svgClass="trips" />
+          </div>
+          <div className="st-item st-item--axis">
+            <span>8:00</span>
+            <span>8:45</span>
+            <span>9:30</span>
+          </div>
+        </Fragment>
+      ) : null}
     </div>
   );
 }
