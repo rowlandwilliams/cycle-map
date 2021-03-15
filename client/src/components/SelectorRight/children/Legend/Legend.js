@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import Controls from "./Controls";
 import TripLegend from "./TripLegend";
 import StationLegend from "./StationLegend";
 import "./styles.css";
@@ -15,6 +16,7 @@ function Legend() {
     <div className={`lg-container ${legendIsEmpty ? "empty" : null}`}>
       {tripsVisible ? <TripLegend /> : null}
       {stationsVisible ? <StationLegend /> : null}
+      <Controls />
     </div>
   );
 }

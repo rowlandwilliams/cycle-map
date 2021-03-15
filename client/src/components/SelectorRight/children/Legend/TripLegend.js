@@ -25,12 +25,12 @@ function TripLegend() {
           svgClass="trip-svg"
         />
       ))}
-      <div className="lg-row">
-        <div className="lg-row--icon">
+      <div className="lg-row lg-row__icon">
+        <div className="lg-row lg-row__icon lg-row__icon--icon">
           <FontAwesomeIcon icon={faArrowAltCircleRight} />
         </div>
         Outbound
-        <div className="lg-row--icon">
+        <div className="lg-row lg-row__icon lg-row__icon--icon">
           <FontAwesomeIcon icon={faArrowAltCircleLeft} />
         </div>
         Inbound

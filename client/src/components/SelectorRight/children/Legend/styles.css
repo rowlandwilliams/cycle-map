@@ -1,5 +1,6 @@
 .lg-container {
   padding: 10px;
+  min-width: 190px;
 }
 
 .lg-container.empty {
