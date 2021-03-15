@@ -22,10 +22,17 @@ function StationTooltip(props) {
   return (
     <div
       className="st"
-      style={{
-        left: props.x,
-        top: props.y,
-      }}
+      style={
+        window.innerWidth > 600
+          ? {
+              left: props.x,
+              top: props.y + 12,
+            }
+          : {
+              left: "50%",
+              top: "50%",
+            }
+      }
       ref={ref}
     >
       <div className="st-item st-item--title">

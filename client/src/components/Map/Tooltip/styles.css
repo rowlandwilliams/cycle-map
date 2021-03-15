@@ -57,7 +57,7 @@
 }
 
 .trips {
-  height: 20px;
+  height: 12px;
 }
 
 .time-slider {
@@ -72,4 +72,10 @@
   display: flex;
   justify-content: space-between;
   padding: 0;
+}
+
+@media (max-width: 600px) {
+  .st {
+    transform: translate(-50%, calc(-50% - 50px));
+  }
 }

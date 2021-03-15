@@ -28,5 +28,6 @@
 @media (max-width: 600px) {
   .sc-db {
     margin-bottom: 5px;
+    max-height: 72%;
   }
 }
