@@ -55,7 +55,7 @@ function StationTooltip(props) {
       </div>
 
       <div className="st-item st-item--svg">
-        <TripSvg data={props.info} width={width} svgClass="test" />
+        <TripSvg data={props.info} width={width} svgClass="trip-svg" />
       </div>
       <div className="st-item st-item--axis">
         <span>8:00</span>
