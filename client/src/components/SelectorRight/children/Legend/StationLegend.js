@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import StationSvg from "./svg/StationSvg";
 
 const stColours = require("../../../utils/tripColours.json")[0].stations.hex;
@@ -9,7 +8,7 @@ function StationLegend() {
     <div className="lg-elem">
       <div className="lg-row lg-row__title">
         <div>Stations</div>
-        <div>Trips</div>
+        <div>nTrips</div>
       </div>
       <div className="lg-row">
         {stColours.map((col, i) => (

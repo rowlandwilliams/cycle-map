@@ -1,4 +1,9 @@
 import TripSvg from "./svg/TripSvg";
+import {
+  faArrowAltCircleRight,
+  faArrowAltCircleLeft,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const tripColours = require("../../../utils/tripColours.json")[0].trips.hex;
 const labels = ["<0.5", "<1", ">1", ">2", ">3", ">4", ">5", ">10", ">20"];
@@ -20,6 +25,16 @@ function TripLegend() {
           svgClass="trip-svg"
         />
       ))}
+      <div className="lg-row">
+        <div className="lg-row--icon">
+          <FontAwesomeIcon icon={faArrowAltCircleRight} />
+        </div>
+        Outbound
+        <div className="lg-row--icon">
+          <FontAwesomeIcon icon={faArrowAltCircleLeft} />
+        </div>
+        Inbound
+      </div>
     </div>
   );
 }
