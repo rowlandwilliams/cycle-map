@@ -2,7 +2,7 @@ import "./styles.css";
 import TripRow from "./TripRow";
 import { faChargingStation } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import TripGraph from "./TripGraph";
+import TripSvg from "./TripGraph";
 import { useRef, useEffect, useState } from "react";
 
 const oneDp = (num) => {
@@ -18,11 +18,9 @@ function StationTooltip(props) {
       setWidth(ref.current.offsetWidth);
     }
   }, [ref.current]);
-  console.log(width);
 
   return (
     <div
-      id="test"
       className="st"
       style={{
         left: props.x,
@@ -50,10 +48,20 @@ function StationTooltip(props) {
           {props.info.trips.map((x) => x.duration).reduce((a, b) => a + b, 0)} s
         </span>
       </div>
-      {props.info.trips.map((x) => (
-        <TripRow info={x} />
-      ))}
-      <TripGraph data={props.info} width={width} />
+      <div className="">
+        {props.info.trips.map((x) => (
+          <TripRow info={x} />
+        ))}
+      </div>
+
+      <div className="st-item st-item--svg">
+        <TripSvg data={props.info} width={width} svgClass="test" />
+      </div>
+      <div className="st-item st-item--axis">
+        <span>8:00</span>
+        <span>8:45</span>
+        <span>9:30</span>
+      </div>
     </div>
   );
 }
