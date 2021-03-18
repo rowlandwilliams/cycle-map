@@ -6,4 +6,5 @@ This is a visualisation of 539 Santander Bike trips taken across central London 
 ## Technologies used:
 - React / Redux
 - deck.gl
+- Mapbox
 - Node / Express
